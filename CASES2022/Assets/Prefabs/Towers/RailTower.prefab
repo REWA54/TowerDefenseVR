@@ -214,6 +214,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 3966649002941551522}
     - target: {fileID: 2208708830182399927, guid: 449610cb2d172e14ea96677d561c0525, type: 3}
+      propertyPath: Datas
+      value: 
+      objectReference: {fileID: 11400000, guid: 40d9a5b80ca7d0744af63b4ca4b536f1, type: 2}
+    - target: {fileID: 2208708830182399927, guid: 449610cb2d172e14ea96677d561c0525, type: 3}
       propertyPath: TowerType
       value: 1
       objectReference: {fileID: 0}

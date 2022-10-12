@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9c317837258641b449e04e31599f5afe, type: 3}
-  m_Name: MissileTower
+  m_Name: RailTower
   m_EditorClassIdentifier: 
-  range: 6
-  shootingRate: 0.5
-  damagesMultiplicator: 2
-  bulletVelocity: 3
-  price: 20
+  range: 10
+  shootingRate: 0
+  damagesMultiplicator: 0
+  bulletVelocity: 0
+  price: 30
