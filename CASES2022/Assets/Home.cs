@@ -1,0 +1,33 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Home : MonoBehaviour
+{
+    public float Life;
+    // Start is called before the first frame update
+    private void OnTriggerEnter(Collider other)
+    {
+       
+        if (other.CompareTag("Enemy"))
+        {
+           
+            TakeDamages( other.GetComponent<EnemyManager>().Damage);
+            Destroy(other.gameObject);
+        }
+    }
+
+    void TakeDamages(float Damages)
+    {
+        Life -= Damages;
+        if (Life <= 0)
+        {
+            Die();
+        }
+    }
+
+    void Die()
+    {
+        Destroy(gameObject);
+    }
+}
