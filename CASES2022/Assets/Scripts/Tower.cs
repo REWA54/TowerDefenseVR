@@ -54,9 +54,10 @@ public class Tower : MonoBehaviour
         damagesMultiplicator = Data.damagesMultiplicator;
         price = Data.price;
         if (TowerType == TypeSelection.Rail){
-            railLineRenderer = Data.lineRenderer;
-            railHitLight = Data.railHitLight;
-            railHitParticles = Data.railHitParticles;
+            Debug.Log("I Load rail DATA");
+            railLineRenderer = gameObject.GetComponent<RailTowerPrefabs>().lineRenderer;
+            railHitLight = gameObject.GetComponent<RailTowerPrefabs>().light;
+            railHitParticles = gameObject.GetComponent<RailTowerPrefabs>().particleSystem;
             return;
         }        
         shootingRate = Data.shootingRate;        
@@ -85,9 +86,12 @@ public class Tower : MonoBehaviour
             //FindEnemy();
             if (TargetGO == null)
             {
-                railLineRenderer.enabled = false;
-				railHitParticles.Stop();
-				railHitLight.enabled = false;
+                if (TowerType == TypeSelection.Rail)
+                {
+                    railLineRenderer.enabled = false;
+                    railHitParticles.Stop();
+                    railHitLight.enabled = false;
+                }               
                 return;
             }
             MoveTower(TargetGO.transform.position);
@@ -163,11 +167,11 @@ public class Tower : MonoBehaviour
 			railHitLight.enabled = true;
        }
 
-       railLineRenderer.SetPosition(0,SpawnPointBullet.position);
-       railLineRenderer.SetPosition(1,TargetGO.transform.position);
+        railLineRenderer.SetPosition(0,SpawnPointBullet.position);
+        railLineRenderer.SetPosition(1,TargetGO.transform.position);
 
-       Vector3 direction = SpawnPointBullet.position - TargetGO.transform.position;
-       railHitParticles.transform.position = TargetGO.transform.position + direction.normalized;
+        Vector3 direction = SpawnPointBullet.position - TargetGO.transform.position;
+       railHitParticles.transform.position = TargetGO.transform.position;
        railHitParticles.transform.rotation = Quaternion.LookRotation(direction);
 
     }
@@ -181,11 +185,6 @@ public class Tower : MonoBehaviour
         TargetGO = null;
         float mindistance = float.PositiveInfinity;
 
-        if (levelManager.Enemys.Count==0)
-        {
-            levelManager.WaveCleared();
-            return;
-        }
         foreach (GameObject enemy in levelManager.Enemys)
         {
             if (enemy != null && enemy.GetComponent<EnemyManager>().alive)

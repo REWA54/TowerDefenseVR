@@ -13,7 +13,10 @@ MonoBehaviour:
   m_Name: RailTower
   m_EditorClassIdentifier: 
   range: 10
-  shootingRate: 0
   damagesMultiplicator: 0
-  bulletVelocity: 0
   price: 30
+  bulletVelocity: 0
+  shootingRate: 0
+  lineRenderer: {fileID: 0}
+  railHitLight: {fileID: 0}
+  railHitParticles: {fileID: 0}

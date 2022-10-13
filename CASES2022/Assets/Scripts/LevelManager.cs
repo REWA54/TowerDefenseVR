@@ -23,16 +23,17 @@ public class LevelManager : MonoBehaviour
     {
         enemySpawner.StartSpawn();
     }
-    public void WaveCleared()
-    {
-        Debug.Log("Wave Cleared, well done !");
-        level ++;
-        UpdateUI();
-    }
+
     private void UpdateUI()
     {
         moneyUI.text = money.ToString();
         levelIndicator.text = "LEVEL " + level.ToString();
+    }
+
+    public void Loot(float lootAmount)
+    {
+        money += lootAmount;
+        UpdateUI();
     }
     public bool Buy(float price)
     {

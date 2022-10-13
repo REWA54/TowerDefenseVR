@@ -28,6 +28,7 @@ public class Bullet : MonoBehaviour
         Damages *= damages;
         
         GetComponent<Rigidbody>().velocity = direction * speed;
+        Debug.Log("I'm launched");
         Destroy(gameObject, 2);
     }
     private void OnTriggerEnter(Collider other)

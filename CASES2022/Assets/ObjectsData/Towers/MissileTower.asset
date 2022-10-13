@@ -15,8 +15,8 @@ MonoBehaviour:
   range: 6
   damagesMultiplicator: 2
   price: 20
-  bulletVelocity: 0
-  shootingRate: 0
+  bulletVelocity: 3
+  shootingRate: 0.5
   lineRenderer: {fileID: 0}
   railHitLight: {fileID: 0}
   railHitParticles: {fileID: 0}

@@ -15,3 +15,4 @@ MonoBehaviour:
   Damage: 20
   Life: 20
   Speed: 1
+  lootMoney: 20
