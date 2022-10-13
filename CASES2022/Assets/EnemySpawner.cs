@@ -22,11 +22,11 @@ public class EnemySpawner : MonoBehaviour
     void Start()
     {
         levelManager = FindObjectOfType<LevelManager>();
-        level = levelManager.level;
     }
 
     public void StartSpawn()
     {
+        SpawnedEnemy = 0;
         LevelLaunched = true;
     }
 

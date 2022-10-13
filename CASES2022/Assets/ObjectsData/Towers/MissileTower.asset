@@ -13,7 +13,10 @@ MonoBehaviour:
   m_Name: MissileTower
   m_EditorClassIdentifier: 
   range: 6
-  shootingRate: 0.5
   damagesMultiplicator: 2
-  bulletVelocity: 3
   price: 20
+  bulletVelocity: 0
+  shootingRate: 0
+  lineRenderer: {fileID: 0}
+  railHitLight: {fileID: 0}
+  railHitParticles: {fileID: 0}

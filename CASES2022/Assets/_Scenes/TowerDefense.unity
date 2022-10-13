@@ -280,6 +280,7 @@ MonoBehaviour:
   level: 0
   enemySpawner: {fileID: 153696525}
   moneyUI: {fileID: 1624069359}
+  levelIndicator: {fileID: 579162630}
 --- !u!4 &41968688
 Transform:
   m_ObjectHideFlags: 0
@@ -2600,7 +2601,7 @@ GameObject:
   - component: {fileID: 579162631}
   - component: {fileID: 579162630}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: LevelText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

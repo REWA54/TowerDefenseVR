@@ -13,6 +13,10 @@ MonoBehaviour:
   m_Name: TowerDebug
   m_EditorClassIdentifier: 
   range: 4
-  shootingRate: 0.2
   damagesMultiplicator: 1
+  price: 0
   bulletVelocity: 5
+  shootingRate: 0.2
+  lineRenderer: {fileID: 6775717248908856321, guid: ea2e883ddb6f2314c8e3d0edf9d09119, type: 3}
+  railHitLight: {fileID: 3151105508218561230, guid: 4b3572f778b550d4a918844edcd24203, type: 3}
+  railHitParticles: {fileID: 2196867563255463511, guid: 490e8a626da397f43ad9e9b75b304e14, type: 3}

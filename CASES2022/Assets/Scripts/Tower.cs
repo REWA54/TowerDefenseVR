@@ -30,7 +30,11 @@ public class Tower : MonoBehaviour
     float damagesMultiplicator;
     float shootCooldown;
     float shootingRate;
+    LineRenderer railLineRenderer;
+    Light railHitLight;
+    ParticleSystem railHitParticles;
     GameObject TargetGO;
+    GameObject enemyAimed;
 
     bool isPlaced = false;
     private void Awake()
@@ -42,14 +46,21 @@ public class Tower : MonoBehaviour
         levelManager = FindObjectOfType<LevelManager>();
         value = price;
         shootCooldown = 0f;
+        InvokeRepeating("FindEnemy", 0f, 0.5f);
     }
     void LoadData(TowerData Data)
     {
         range = Data.range;
-        shootingRate = Data.shootingRate;
         damagesMultiplicator = Data.damagesMultiplicator;
-        bulletSpeed = Data.bulletVelocity;
         price = Data.price;
+        if (TowerType == TypeSelection.Rail){
+            railLineRenderer = Data.lineRenderer;
+            railHitLight = Data.railHitLight;
+            railHitParticles = Data.railHitParticles;
+            return;
+        }        
+        shootingRate = Data.shootingRate;        
+        bulletSpeed = Data.bulletVelocity;        
     }
     private void OnDrawGizmosSelected()
     {
@@ -71,12 +82,12 @@ public class Tower : MonoBehaviour
     }
     void Update()
     {
-        
-        if (isPlaced)
-        {
-            FindEnemy();
+            //FindEnemy();
             if (TargetGO == null)
             {
+                railLineRenderer.enabled = false;
+				railHitParticles.Stop();
+				railHitLight.enabled = false;
                 return;
             }
             MoveTower(TargetGO.transform.position);
@@ -86,13 +97,12 @@ public class Tower : MonoBehaviour
                     CanonShoot();
                     break;
                 case TypeSelection.Rail:
+                    LaserRail();
                     break;
                 case TypeSelection.Missile:
                     MissileLaunch();
                     break;
             }
-        }
-       
     }
     public void Upgrade()
     {
@@ -142,11 +152,40 @@ public class Tower : MonoBehaviour
         GameObject Missile = Instantiate(MissilePrefab);
         Missile.GetComponent<Bullet>().Fire(SpawnPointBullet, SpawnPointBullet.forward, bulletSpeed, damagesMultiplicator,TargetGO.transform.position);
     }
-    void FindEnemy() {
+    void LaserRail()
+    {
+       EnemyManager enemyManager = enemyAimed.GetComponent<EnemyManager>();
+       enemyManager.TakeDamages(damagesMultiplicator * Time.deltaTime);
+
+       if(railLineRenderer.enabled == false){
+            railLineRenderer.enabled = true;
+			railHitParticles.Play();
+			railHitLight.enabled = true;
+       }
+
+       railLineRenderer.SetPosition(0,SpawnPointBullet.position);
+       railLineRenderer.SetPosition(1,TargetGO.transform.position);
+
+       Vector3 direction = SpawnPointBullet.position - TargetGO.transform.position;
+       railHitParticles.transform.position = TargetGO.transform.position + direction.normalized;
+       railHitParticles.transform.rotation = Quaternion.LookRotation(direction);
+
+    }
+    void FindEnemy() 
+    {
+         if (!isPlaced)
+        {
+            return;
+        }
 
         TargetGO = null;
         float mindistance = float.PositiveInfinity;
 
+        if (levelManager.Enemys.Count==0)
+        {
+            levelManager.WaveCleared();
+            return;
+        }
         foreach (GameObject enemy in levelManager.Enemys)
         {
             if (enemy != null && enemy.GetComponent<EnemyManager>().alive)
@@ -157,6 +196,7 @@ public class Tower : MonoBehaviour
                 if (distanceFromTower < mindistance && distanceFromTower < range)
                 {
                     mindistance = distanceFromTower;
+                    enemyAimed = enemy;
                     TargetGO = enemy.GetComponent<EnemyManager>().targetPoint.gameObject;
                 }
             }           
