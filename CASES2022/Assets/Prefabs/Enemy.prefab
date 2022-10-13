@@ -49,7 +49,9 @@ MonoBehaviour:
   Data: {fileID: 11400000, guid: 93bcc3e5467755e4796d6159eda2ccd0, type: 2}
   Damage: 0
   Life: 0
+  deathEffect: {fileID: 5908066195548668840, guid: 2ea328a241cac784c9f36b768175afda, type: 3}
   alive: 0
+  targetPoint: {fileID: 0}
 --- !u!114 &4150031657088777987
 MonoBehaviour:
   m_ObjectHideFlags: 0

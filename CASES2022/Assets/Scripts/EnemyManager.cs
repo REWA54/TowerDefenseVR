@@ -6,6 +6,7 @@ public class EnemyManager : MonoBehaviour
     public EnemyData Data;
     public float Damage;
     [SerializeField] float Life;
+    public GameObject deathEffect;
     public bool alive;
     public Transform targetPoint;
 
@@ -34,6 +35,8 @@ public class EnemyManager : MonoBehaviour
     void Die()
     {
         alive = false;
-        gameObject.SetActive(false);
+        GameObject DeathEffect = (GameObject) Instantiate(deathEffect,transform);
+        Destroy(DeathEffect,0.1f);
+        Destroy(gameObject);
     }
 }
