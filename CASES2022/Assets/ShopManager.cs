@@ -10,7 +10,7 @@ public class ShopManager : MonoBehaviour
 
     public void BuyTower(int tower)
     {
-        if (LevelManager.Buy(towers[tower].GetComponent<Tower>().price))
+        if (LevelManager.Buy(towers[tower].GetComponent<Tower>().Datas.price))
         {
             Instantiate(towers[tower], spawnPoint);
         }
