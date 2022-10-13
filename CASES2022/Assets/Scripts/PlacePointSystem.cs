@@ -13,16 +13,16 @@ public class PlacePointSystem : MonoBehaviour
     }
     public void TowerPlacing(SelectEnterEventArgs args)
     {
-        if (args.interactable.CompareTag("Tower"))
+        if (args.interactableObject.transform.gameObject.CompareTag("Tower"))
         {
-            args.interactable.GetComponent<Tower>().Placement(true);
+            args.interactableObject.transform.gameObject.GetComponent<Tower>().Placement(true);
         }
     }
     public void TowerRemove(SelectExitEventArgs args)
     {
-        if (args.interactable.CompareTag("Tower"))
+        if (args.interactableObject.transform.gameObject.CompareTag("Tower"))
         {
-            args.interactable.GetComponent<Tower>().Placement(false);
+            args.interactableObject.transform.gameObject.GetComponent<Tower>().Placement(false);
         }
     }
 }

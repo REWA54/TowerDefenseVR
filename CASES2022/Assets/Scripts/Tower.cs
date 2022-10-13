@@ -8,10 +8,12 @@ public class Tower : MonoBehaviour
     public enum TypeSelection { Canon, Rail, Missile }
     public TypeSelection TowerType;
     LevelManager levelManager;
+
+    [Header("Prefabs")]
     public GameObject BulletPrefab;
     public GameObject MissilePrefab;
     [SerializeField] TMP_Text[] levelDisplays;
-    
+
     [Header("Transforms")]
     [SerializeField] Transform SpawnPointBullet;
     [SerializeField] Transform TowerRotationPoint;
@@ -21,11 +23,13 @@ public class Tower : MonoBehaviour
     public TowerData Datas;
     public int level;
     public float price;
-    [SerializeField] float BulletSpeed;
-    [SerializeField] float Range;
-    [SerializeField] float damagesMultiplicator;
-    [SerializeField] float shootCooldown;
-    [SerializeField] float shootingRate;
+    public float value;
+    public float upgradeMultiplicator;
+    float bulletSpeed;
+    float range;
+    float damagesMultiplicator;
+    float shootCooldown;
+    float shootingRate;
     GameObject TargetGO;
 
     bool isPlaced = false;
@@ -36,23 +40,21 @@ public class Tower : MonoBehaviour
     void Start()
     {
         levelManager = FindObjectOfType<LevelManager>();
-       
+        value = price;
         shootCooldown = 0f;
     }
-
-    
     void LoadData(TowerData Data)
     {
-        Range = Data.range;
+        range = Data.range;
         shootingRate = Data.shootingRate;
         damagesMultiplicator = Data.damagesMultiplicator;
-        BulletSpeed = Data.bulletVelocity;
+        bulletSpeed = Data.bulletVelocity;
         price = Data.price;
     }
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, Range);
+        Gizmos.DrawWireSphere(transform.position, range);
     }
     public void Placement(bool state)
     {
@@ -67,7 +69,6 @@ public class Tower : MonoBehaviour
         }
         
     }
-    // Update is called once per frame
     void Update()
     {
         
@@ -93,16 +94,14 @@ public class Tower : MonoBehaviour
         }
        
     }
-
     public void Upgrade()
     {
-        shootingRate *= 0.8f;
-        BulletSpeed *= 1.2f;
-        Range *= 1.2f;
+        shootingRate /= upgradeMultiplicator;
+        bulletSpeed *= upgradeMultiplicator;
+        range *= upgradeMultiplicator;
         level++;
         UpdateUI();
     }
-
     void UpdateUI()
     {
         foreach (var item in levelDisplays)
@@ -124,7 +123,6 @@ public class Tower : MonoBehaviour
         shootCooldown = shootingRate;
         Shoot();
     }
-    
     void MissileLaunch()
     {
         if (shootCooldown > 0)
@@ -139,11 +137,10 @@ public class Tower : MonoBehaviour
         shootCooldown = shootingRate;
         Launch();
     }
-
     void Launch()
     {
         GameObject Missile = Instantiate(MissilePrefab);
-        Missile.GetComponent<Bullet>().Fire(SpawnPointBullet, SpawnPointBullet.forward, BulletSpeed, damagesMultiplicator,TargetGO.transform.position);
+        Missile.GetComponent<Bullet>().Fire(SpawnPointBullet, SpawnPointBullet.forward, bulletSpeed, damagesMultiplicator,TargetGO.transform.position);
     }
     void FindEnemy() {
 
@@ -157,7 +154,7 @@ public class Tower : MonoBehaviour
                 Vector3 posEnemy = enemy.transform.position;
 
                 float distanceFromTower = Vector3.Distance(posEnemy, transform.position);
-                if (distanceFromTower < mindistance && distanceFromTower < Range)
+                if (distanceFromTower < mindistance && distanceFromTower < range)
                 {
                     mindistance = distanceFromTower;
                     TargetGO = enemy.GetComponent<EnemyManager>().targetPoint.gameObject;
@@ -171,11 +168,10 @@ public class Tower : MonoBehaviour
         TowerRotationPoint.LookAt(LookPosition);
         Canon.LookAt(EnemyTarget);
     }
-
     void Shoot()
     {
         GameObject Bullet = Instantiate(BulletPrefab);
-        Bullet.GetComponent<Bullet>().Fire(SpawnPointBullet, SpawnPointBullet.forward, BulletSpeed, damagesMultiplicator, TargetGO.transform.position);
+        Bullet.GetComponent<Bullet>().Fire(SpawnPointBullet, SpawnPointBullet.forward, bulletSpeed, damagesMultiplicator, TargetGO.transform.position);
        
     }
 }

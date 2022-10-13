@@ -14,11 +14,9 @@ public class UpgradeSystem : MonoBehaviour
         {
             return;
         }
-        Debug.Log("I've something to upgrade");
         switch (thingToUpgrade.tag)
         {
             case ("Weapon"):
-                Debug.Log("I've a weapon to upgrade");
                 thingToUpgrade.GetComponent<Pistol>().Upgrade();
                 break;
             case ("Tower"):
@@ -29,6 +27,6 @@ public class UpgradeSystem : MonoBehaviour
 
     public void ChooseThingToUprade(SelectEnterEventArgs args)
     {
-        thingToUpgrade = args.interactable.gameObject;
+        thingToUpgrade = args.interactableObject.transform.gameObject;
     }
 }
