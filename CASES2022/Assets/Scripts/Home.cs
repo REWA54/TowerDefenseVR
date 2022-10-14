@@ -5,10 +5,15 @@ using UnityEngine;
 public class Home : MonoBehaviour
 {
     public float Life;
+    LevelManager levelManager;
+
+    private void Start()
+    {
+        levelManager = FindObjectOfType<LevelManager>();
+    }
 
     private void OnTriggerEnter(Collider other)
     {
-       
         if (other.CompareTag("Enemy"))
         {
            
@@ -28,6 +33,7 @@ public class Home : MonoBehaviour
 
     void Die()
     {
+        levelManager.LevelEnd();
         Destroy(gameObject);
     }
 }

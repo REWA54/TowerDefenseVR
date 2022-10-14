@@ -19,6 +19,10 @@ public class LevelManager : MonoBehaviour
         money = 100f;
         UpdateUI();        
     }
+    public void LevelEnd()
+    {
+        Debug.Log("Level ended"); ;
+    }
     public void LevelStart()
     {
         if (!CheckWaveEnd())
