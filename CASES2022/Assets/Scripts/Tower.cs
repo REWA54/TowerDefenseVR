@@ -116,7 +116,9 @@ public class Tower : MonoBehaviour
         bulletSpeed *= upgradeMultiplicator;
         range *= upgradeMultiplicator;
         value += upgradePrice;
-        upgradePrice = 0.2f * value;
+        upgradePrice = Mathf.Round(
+            price * Mathf.Pow(upgradeMultiplicator,level)
+            );
         level++;
         UpdateUI();
     }

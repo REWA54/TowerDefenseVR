@@ -21,7 +21,7 @@ public class LevelManager : MonoBehaviour
     }
     public void LevelStart()
     {
-        enemySpawner.StartSpawn();
+        enemySpawner.StartSpawn(level);
     }
 
     private void UpdateUI()

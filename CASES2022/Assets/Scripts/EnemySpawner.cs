@@ -9,32 +9,34 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] Transform spawnPoint;
     LevelManager levelManager;
     [SerializeField] Transform enemyTarget;
-    public int EnemyQuantity;
     int SpawnedEnemy = 0;
+    int enemysToSpawn;
     int level;
     float spawnCooldown;
     public float spawnRate;
-
     bool LevelLaunched = false;
 
-
-    // Start is called before the first frame update
     void Start()
     {
         levelManager = FindObjectOfType<LevelManager>();
     }
 
-    public void StartSpawn()
+    public void StartSpawn(int actualLevel)
     {
+        level = actualLevel;
+        enemysToSpawn = level + Mathf.RoundToInt(Random.Range(0,level*1.2f));
         SpawnedEnemy = 0;
         LevelLaunched = true;
     }
 
     private void Update()
     {
-        if (SpawnedEnemy <= EnemyQuantity && SpawnCooldown(spawnRate) && LevelLaunched)
+        if (SpawnedEnemy <= enemysToSpawn  && SpawnCooldown(spawnRate) && LevelLaunched)
         {
-            SpawnEnemy(0);
+            SpawnEnemy(
+                Mathf.RoundToInt( Random.Range(0,enemyPrefabs.Length)),
+                Mathf.RoundToInt( Random.Range(0,enemyTypes.Length))
+                );
         }
     }
     bool SpawnCooldown(float spawnRateUpdate)
@@ -49,10 +51,14 @@ public class EnemySpawner : MonoBehaviour
         return true;
     }
 
-    void SpawnEnemy(int Type)
+    void SpawnEnemy(int prefab, int Type)
     {
-        GameObject EnemyInstanciated = (GameObject) Instantiate(enemyPrefabs[Type],spawnPoint);
-        EnemyInstanciated.GetComponent<EnemyManager>().LoadData(enemyTypes[Type]);
+        GameObject EnemyInstanciated = (GameObject) Instantiate(enemyPrefabs[prefab],spawnPoint);
+
+        EnemyManager em = EnemyInstanciated.GetComponent<EnemyManager>();
+        em.LoadData(enemyTypes[Type]);
+        em.IncreaseDifficulty(level);
+
         EnemyInstanciated.GetComponent<EnemyMovement>().Destination = enemyTarget;
         levelManager.Enemys.Add(EnemyInstanciated);
         SpawnedEnemy++;

@@ -5,6 +5,6 @@ using UnityEngine;
 public class RailTowerPrefabs : MonoBehaviour
 {
     public LineRenderer lineRenderer;
-    public Light light;
-    public ParticleSystem particleSystem;
+    public new Light light;
+    public new ParticleSystem particleSystem;
 }

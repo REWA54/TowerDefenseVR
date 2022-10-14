@@ -11,6 +11,8 @@ public class EnemyManager : MonoBehaviour
     public bool alive;
     public Transform targetPoint;
     LevelManager levelManager;
+    int level = 1;
+    public float DifficultyMultiplicator = 1.2f;
     private void Start()
     {
         LoadData(Data);
@@ -35,9 +37,14 @@ public class EnemyManager : MonoBehaviour
         }
     }
 
+    public void IncreaseDifficulty(int spawnLevel){
+        level = spawnLevel;
+        Damage *= Mathf.Pow(DifficultyMultiplicator,level);
+        Life *= Mathf.Pow(DifficultyMultiplicator,level);
+    }
     void Die()
     {
-        levelManager.Loot(lootAmount);
+        levelManager.Loot(lootAmount*Mathf.Pow(DifficultyMultiplicator,level));
         alive = false;
         GameObject DeathEffect = (GameObject) Instantiate(deathEffect,transform);
         Destroy(DeathEffect,0.1f);
