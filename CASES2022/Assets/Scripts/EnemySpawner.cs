@@ -21,12 +21,13 @@ public class EnemySpawner : MonoBehaviour
         levelManager = FindObjectOfType<LevelManager>();
     }
 
-    public void StartSpawn(int actualLevel)
+    public int StartSpawn(int actualLevel)
     {
         level = actualLevel;
-        enemysToSpawn = level + Mathf.RoundToInt(Random.Range(0,level*1.2f));
+        enemysToSpawn = Mathf.RoundToInt(Random.Range(level, level*1.2f));
         SpawnedEnemy = 0;
         LevelLaunched = true;
+        return enemysToSpawn;
     }
 
     private void Update()

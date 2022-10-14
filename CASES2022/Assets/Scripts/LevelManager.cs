@@ -12,16 +12,24 @@ public class LevelManager : MonoBehaviour
     [SerializeField] TMP_Text moneyUI;
     public TMP_Text levelIndicator;
     float money;
-    // Start is called before the first frame update
+    int enemysThisWave = 0;
+    int enemysKilledThisWave =0;
     void Start()
     {
         money = 100f;
-        UpdateUI();
-        
+        UpdateUI();        
     }
     public void LevelStart()
     {
-        enemySpawner.StartSpawn(level);
+        if (!CheckWaveEnd())
+        {
+            return;
+        }
+        Enemys.Clear();
+        enemysThisWave = 0;
+        enemysKilledThisWave = 0;
+        enemysThisWave = enemySpawner.StartSpawn(level);
+        UpdateUI();
     }
 
     private void UpdateUI()
@@ -33,7 +41,22 @@ public class LevelManager : MonoBehaviour
     public void Loot(float lootAmount)
     {
         money += lootAmount;
+        
+        enemysKilledThisWave++;
+        if (CheckWaveEnd())
+        {
+            level++;
+        }
         UpdateUI();
+    }
+
+    bool CheckWaveEnd()
+    {
+        if (enemysThisWave > enemysKilledThisWave)
+        {
+            return false;
+        }
+        return true;
     }
     public bool Buy(float price)
     {

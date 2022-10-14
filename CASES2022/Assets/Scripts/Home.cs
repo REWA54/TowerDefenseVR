@@ -5,7 +5,7 @@ using UnityEngine;
 public class Home : MonoBehaviour
 {
     public float Life;
-    // Start is called before the first frame update
+
     private void OnTriggerEnter(Collider other)
     {
        

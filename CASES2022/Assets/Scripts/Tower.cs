@@ -85,7 +85,6 @@ public class Tower : MonoBehaviour
     }
     void Update()
     {
-            //FindEnemy();
             if (TargetGO == null)
             {
                 if (TowerType == TypeSelection.Rail)
