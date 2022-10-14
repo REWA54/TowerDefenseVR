@@ -25,6 +25,7 @@ public class Tower : MonoBehaviour
     public float price;
     public float value;
     public float upgradeMultiplicator;
+    public float upgradePrice;
     float bulletSpeed;
     float range;
     float damagesMultiplicator;
@@ -45,6 +46,7 @@ public class Tower : MonoBehaviour
     {
         levelManager = FindObjectOfType<LevelManager>();
         value = price;
+        upgradePrice = 0.2f * value;
         shootCooldown = 0f;
         InvokeRepeating("FindEnemy", 0f, 0.5f);
     }
@@ -113,6 +115,8 @@ public class Tower : MonoBehaviour
         shootingRate /= upgradeMultiplicator;
         bulletSpeed *= upgradeMultiplicator;
         range *= upgradeMultiplicator;
+        value += upgradePrice;
+        upgradePrice = 0.2f * value;
         level++;
         UpdateUI();
     }

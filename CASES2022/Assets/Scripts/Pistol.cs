@@ -9,6 +9,7 @@ public class Pistol : MonoBehaviour
     [SerializeField] GameObject BulletGO;
     [SerializeField] Transform BarrelEnd;
     [SerializeField] float FireSpeed;
+    public float upgradePrice;
     public float damagesMultiplier;
     public int Level;
     [SerializeField] TMP_Text LevelUI;
@@ -29,6 +30,7 @@ public class Pistol : MonoBehaviour
     {
         Level++;
         damagesMultiplier *= 1.2f;
+        upgradePrice *= 1.2f;
         UpdateUI();
     }
 
