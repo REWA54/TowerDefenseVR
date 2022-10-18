@@ -308,6 +308,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4409072360279180712}
     m_Modifications:
+    - target: {fileID: 1938108992946305413, guid: 490e8a626da397f43ad9e9b75b304e14, type: 3}
+      propertyPath: m_AdditionalLightsShadowResolutionTier
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2196867563255463511, guid: 490e8a626da397f43ad9e9b75b304e14, type: 3}
       propertyPath: ShapeModule.angle
       value: 7.17
@@ -359,6 +363,34 @@ PrefabInstance:
     - target: {fileID: 5005797880950020476, guid: 490e8a626da397f43ad9e9b75b304e14, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6391643216759294647, guid: 490e8a626da397f43ad9e9b75b304e14, type: 3}
+      propertyPath: m_Range
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 6391643216759294647, guid: 490e8a626da397f43ad9e9b75b304e14, type: 3}
+      propertyPath: m_Color.b
+      value: 0.9528302
+      objectReference: {fileID: 0}
+    - target: {fileID: 6391643216759294647, guid: 490e8a626da397f43ad9e9b75b304e14, type: 3}
+      propertyPath: m_Color.g
+      value: 0.91320896
+      objectReference: {fileID: 0}
+    - target: {fileID: 6391643216759294647, guid: 490e8a626da397f43ad9e9b75b304e14, type: 3}
+      propertyPath: m_Color.r
+      value: 0.013483422
+      objectReference: {fileID: 0}
+    - target: {fileID: 6391643216759294647, guid: 490e8a626da397f43ad9e9b75b304e14, type: 3}
+      propertyPath: m_Intensity
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6391643216759294647, guid: 490e8a626da397f43ad9e9b75b304e14, type: 3}
+      propertyPath: m_Shadows.m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6391643216759294647, guid: 490e8a626da397f43ad9e9b75b304e14, type: 3}
+      propertyPath: m_Shadows.m_Strength
+      value: 0.599
       objectReference: {fileID: 0}
     - target: {fileID: 6411768474064113045, guid: 490e8a626da397f43ad9e9b75b304e14, type: 3}
       propertyPath: m_Name
