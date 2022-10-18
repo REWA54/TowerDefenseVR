@@ -97,8 +97,8 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
-  m_LightingSettings: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 7aa687b664bce444589115aa4cb50a4c, type: 2}
+  m_LightingSettings: {fileID: 4890085278179872738, guid: eb262f341a17c604c9531465af58b794, type: 2}
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -304,13 +304,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 938517335}
     m_Modifications:
+    - target: {fileID: 3725691998898695155, guid: ea5eaffcf9407b4488ead5b03d245b7b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 8520371537823194224, guid: ea5eaffcf9407b4488ead5b03d245b7b, type: 3}
       propertyPath: m_Name
       value: PlacePoint (7)
       objectReference: {fileID: 0}
     - target: {fileID: 8520371537823194224, guid: ea5eaffcf9407b4488ead5b03d245b7b, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 119
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 8520371537823194225, guid: ea5eaffcf9407b4488ead5b03d245b7b, type: 3}
       propertyPath: m_AttachTransform
@@ -378,7 +382,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8520371538135513414, guid: ea5eaffcf9407b4488ead5b03d245b7b, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 119
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ea5eaffcf9407b4488ead5b03d245b7b, type: 3}
@@ -472,13 +476,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 938517335}
     m_Modifications:
+    - target: {fileID: 3725691998898695155, guid: ea5eaffcf9407b4488ead5b03d245b7b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 8520371537823194224, guid: ea5eaffcf9407b4488ead5b03d245b7b, type: 3}
       propertyPath: m_Name
       value: PlacePoint (5)
       objectReference: {fileID: 0}
     - target: {fileID: 8520371537823194224, guid: ea5eaffcf9407b4488ead5b03d245b7b, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 119
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 8520371537823194225, guid: ea5eaffcf9407b4488ead5b03d245b7b, type: 3}
       propertyPath: m_InteractableHoverScale
@@ -542,7 +550,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8520371538135513414, guid: ea5eaffcf9407b4488ead5b03d245b7b, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 119
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ea5eaffcf9407b4488ead5b03d245b7b, type: 3}
@@ -567,7 +575,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!224 &118593023
 RectTransform:
@@ -1243,7 +1251,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f45e4d7d2047d3c48bff8cb196004885, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 95
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f45e4d7d2047d3c48bff8cb196004885, type: 3}
@@ -1282,7 +1290,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!224 &278502393
 RectTransform:
@@ -1823,7 +1831,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!114 &345478004
 MonoBehaviour:
@@ -2105,7 +2113,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!114 &394885299
 MonoBehaviour:
@@ -5785,7 +5793,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 119
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &938517335
 Transform:
@@ -5830,7 +5838,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 119
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!23 &951679962
 MeshRenderer:
@@ -6138,13 +6146,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 938517335}
     m_Modifications:
+    - target: {fileID: 3725691998898695155, guid: ea5eaffcf9407b4488ead5b03d245b7b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 8520371537823194224, guid: ea5eaffcf9407b4488ead5b03d245b7b, type: 3}
       propertyPath: m_Name
       value: PlacePoint (8)
       objectReference: {fileID: 0}
     - target: {fileID: 8520371537823194224, guid: ea5eaffcf9407b4488ead5b03d245b7b, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 119
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 8520371537823194225, guid: ea5eaffcf9407b4488ead5b03d245b7b, type: 3}
       propertyPath: m_InteractableHoverScale
@@ -6208,7 +6220,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8520371538135513414, guid: ea5eaffcf9407b4488ead5b03d245b7b, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 119
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ea5eaffcf9407b4488ead5b03d245b7b, type: 3}
@@ -6234,7 +6246,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 0
 --- !u!114 &1058128688
 MonoBehaviour:
@@ -6368,7 +6380,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!65 &1223189295
 BoxCollider:
@@ -6464,7 +6476,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!108 &1247592883
 Light:
@@ -6490,7 +6502,7 @@ Light:
     m_Strength: 1
     m_Bias: 0.05
     m_NormalBias: 0.4
-    m_NearPlane: 0.2
+    m_NearPlane: 0.1
     m_CullingMatrixOverride:
       e00: 1
       e01: 0
@@ -6517,7 +6529,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 1
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -6580,7 +6592,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1256436078
 Transform:
@@ -6667,13 +6679,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 938517335}
     m_Modifications:
+    - target: {fileID: 3725691998898695155, guid: ea5eaffcf9407b4488ead5b03d245b7b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 8520371537823194224, guid: ea5eaffcf9407b4488ead5b03d245b7b, type: 3}
       propertyPath: m_Name
       value: PlacePoint (1)
       objectReference: {fileID: 0}
     - target: {fileID: 8520371537823194224, guid: ea5eaffcf9407b4488ead5b03d245b7b, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 119
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 8520371537823194225, guid: ea5eaffcf9407b4488ead5b03d245b7b, type: 3}
       propertyPath: m_InteractableHoverScale
@@ -6737,7 +6753,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8520371538135513414, guid: ea5eaffcf9407b4488ead5b03d245b7b, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 119
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ea5eaffcf9407b4488ead5b03d245b7b, type: 3}
@@ -6773,7 +6789,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!224 &1433873677
 RectTransform:
@@ -6899,13 +6915,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 938517335}
     m_Modifications:
+    - target: {fileID: 3725691998898695155, guid: ea5eaffcf9407b4488ead5b03d245b7b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 8520371537823194224, guid: ea5eaffcf9407b4488ead5b03d245b7b, type: 3}
       propertyPath: m_Name
       value: PlacePoint (3)
       objectReference: {fileID: 0}
     - target: {fileID: 8520371537823194224, guid: ea5eaffcf9407b4488ead5b03d245b7b, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 119
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 8520371537823194225, guid: ea5eaffcf9407b4488ead5b03d245b7b, type: 3}
       propertyPath: m_InteractableHoverScale
@@ -6969,7 +6989,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8520371538135513414, guid: ea5eaffcf9407b4488ead5b03d245b7b, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 119
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ea5eaffcf9407b4488ead5b03d245b7b, type: 3}
@@ -7070,13 +7090,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 938517335}
     m_Modifications:
+    - target: {fileID: 3725691998898695155, guid: ea5eaffcf9407b4488ead5b03d245b7b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 8520371537823194224, guid: ea5eaffcf9407b4488ead5b03d245b7b, type: 3}
       propertyPath: m_Name
       value: PlacePoint (9)
       objectReference: {fileID: 0}
     - target: {fileID: 8520371537823194224, guid: ea5eaffcf9407b4488ead5b03d245b7b, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 119
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 8520371537823194225, guid: ea5eaffcf9407b4488ead5b03d245b7b, type: 3}
       propertyPath: m_InteractableHoverScale
@@ -7140,7 +7164,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8520371538135513414, guid: ea5eaffcf9407b4488ead5b03d245b7b, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 119
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ea5eaffcf9407b4488ead5b03d245b7b, type: 3}
@@ -7632,7 +7656,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1616339590
 Transform:
@@ -7866,7 +7890,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!224 &1626191389
 RectTransform:
@@ -8378,7 +8402,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1691255863
 Transform:
@@ -8499,13 +8523,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 938517335}
     m_Modifications:
+    - target: {fileID: 3725691998898695155, guid: ea5eaffcf9407b4488ead5b03d245b7b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 8520371537823194224, guid: ea5eaffcf9407b4488ead5b03d245b7b, type: 3}
       propertyPath: m_Name
       value: PlacePoint (4)
       objectReference: {fileID: 0}
     - target: {fileID: 8520371537823194224, guid: ea5eaffcf9407b4488ead5b03d245b7b, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 119
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 8520371537823194225, guid: ea5eaffcf9407b4488ead5b03d245b7b, type: 3}
       propertyPath: m_InteractableHoverScale
@@ -8569,7 +8597,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8520371538135513414, guid: ea5eaffcf9407b4488ead5b03d245b7b, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 119
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ea5eaffcf9407b4488ead5b03d245b7b, type: 3}
@@ -8585,13 +8613,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 938517335}
     m_Modifications:
+    - target: {fileID: 3725691998898695155, guid: ea5eaffcf9407b4488ead5b03d245b7b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 8520371537823194224, guid: ea5eaffcf9407b4488ead5b03d245b7b, type: 3}
       propertyPath: m_Name
       value: PlacePoint
       objectReference: {fileID: 0}
     - target: {fileID: 8520371537823194224, guid: ea5eaffcf9407b4488ead5b03d245b7b, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 119
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 8520371537823194225, guid: ea5eaffcf9407b4488ead5b03d245b7b, type: 3}
       propertyPath: m_InteractableHoverScale
@@ -8683,7 +8715,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8520371538135513414, guid: ea5eaffcf9407b4488ead5b03d245b7b, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 119
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ea5eaffcf9407b4488ead5b03d245b7b, type: 3}
@@ -8806,7 +8838,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1870353205
 Transform:
@@ -8893,13 +8925,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 938517335}
     m_Modifications:
+    - target: {fileID: 3725691998898695155, guid: ea5eaffcf9407b4488ead5b03d245b7b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 8520371537823194224, guid: ea5eaffcf9407b4488ead5b03d245b7b, type: 3}
       propertyPath: m_Name
       value: PlacePoint (2)
       objectReference: {fileID: 0}
     - target: {fileID: 8520371537823194224, guid: ea5eaffcf9407b4488ead5b03d245b7b, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 119
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 8520371537823194225, guid: ea5eaffcf9407b4488ead5b03d245b7b, type: 3}
       propertyPath: m_InteractableHoverScale
@@ -8963,7 +8999,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8520371538135513414, guid: ea5eaffcf9407b4488ead5b03d245b7b, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 119
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ea5eaffcf9407b4488ead5b03d245b7b, type: 3}
@@ -9229,13 +9265,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 938517335}
     m_Modifications:
+    - target: {fileID: 3725691998898695155, guid: ea5eaffcf9407b4488ead5b03d245b7b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 8520371537823194224, guid: ea5eaffcf9407b4488ead5b03d245b7b, type: 3}
       propertyPath: m_Name
       value: PlacePoint (6)
       objectReference: {fileID: 0}
     - target: {fileID: 8520371537823194224, guid: ea5eaffcf9407b4488ead5b03d245b7b, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 119
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 8520371537823194225, guid: ea5eaffcf9407b4488ead5b03d245b7b, type: 3}
       propertyPath: m_InteractableHoverScale
@@ -9299,7 +9339,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8520371538135513414, guid: ea5eaffcf9407b4488ead5b03d245b7b, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 119
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ea5eaffcf9407b4488ead5b03d245b7b, type: 3}
