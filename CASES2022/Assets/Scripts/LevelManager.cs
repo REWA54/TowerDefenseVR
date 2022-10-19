@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class LevelManager : MonoBehaviour
@@ -9,7 +10,7 @@ public class LevelManager : MonoBehaviour
     public List<GameObject> Enemys;
     public int level = 0;
     [SerializeField] EnemySpawner enemySpawner;
-    [SerializeField] TMP_Text moneyUI;
+    [SerializeField] TMP_Text[] moneyUI;
     public TMP_Text levelIndicator;
     float money;
     int enemysThisWave = 0;
@@ -38,7 +39,11 @@ public class LevelManager : MonoBehaviour
 
     private void UpdateUI()
     {
-        moneyUI.text = money.ToString();
+        foreach (TMP_Text text in moneyUI)
+        {
+            text.text = Mathf.RoundToInt(money).ToString();
+        }
+       // moneyUI.text = money.ToString();
         levelIndicator.text = "LEVEL " + level.ToString();
     }
 
@@ -79,5 +84,12 @@ public class LevelManager : MonoBehaviour
         //If they do, subtract the price from their money and return true
         //If they don't, return false
 
+    }
+
+    public void RestartScene()
+    {
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
     }
 }

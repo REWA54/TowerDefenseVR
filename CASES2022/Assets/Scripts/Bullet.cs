@@ -21,7 +21,7 @@ public class Bullet : MonoBehaviour
     }
 
     public void Fire(Transform spawnPoint, Vector3 direction,float speed, float damages, Vector3 TargetPoint)
-    {
+    {       
         transform.position = spawnPoint.position;
         transform.LookAt(TargetPoint);
 
