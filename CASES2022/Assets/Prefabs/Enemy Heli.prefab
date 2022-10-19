@@ -115,6 +115,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4150031657088777987, guid: 3f176c4e899aa774cb5e72a5617f7791, type: 3}
+      propertyPath: speed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4150031657088777987, guid: 3f176c4e899aa774cb5e72a5617f7791, type: 3}
+      propertyPath: isFlying
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4150031657088777989, guid: 3f176c4e899aa774cb5e72a5617f7791, type: 3}
       propertyPath: Data
       value: 
@@ -215,7 +223,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5332742211448849881}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1.8296704, y: 1.7144378, z: 4.710471}

@@ -13,7 +13,8 @@ public class EnemyManager : MonoBehaviour
     LevelManager levelManager;
     int level = 1;
     public float DifficultyMultiplicator = 1.2f;
-    private void Start()
+    
+    private void Awake()
     {
         LoadData(Data);
         alive = true;
@@ -25,7 +26,7 @@ public class EnemyManager : MonoBehaviour
         Damage = Data.Damage;
         Life = Data.Life;
         lootAmount = Data.lootMoney;
-        GetComponent<NavMeshAgent>().speed = Data.Speed;
+        GetComponent<EnemyMovement>().speed = Data.Speed;
     }
 
     public void TakeDamages(float hitDamages)
@@ -36,12 +37,13 @@ public class EnemyManager : MonoBehaviour
             Die();
         }
     }
-
     public void IncreaseDifficulty(int spawnLevel){
+        // Increase difficulty by level
         level = spawnLevel;
         Damage *= Mathf.Pow(DifficultyMultiplicator,level);
         Life *= Mathf.Pow(DifficultyMultiplicator,level);
     }
+
     void Die()
     {
         levelManager.Loot(lootAmount*Mathf.Pow(DifficultyMultiplicator,level));

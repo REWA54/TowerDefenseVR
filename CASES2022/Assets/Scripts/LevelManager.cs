@@ -61,7 +61,9 @@ public class LevelManager : MonoBehaviour
             return false;
         }
         return true;
+        // check if all enemys are dead
     }
+
     public bool Buy(float price)
     {
         if (money >= price)
@@ -72,5 +74,10 @@ public class LevelManager : MonoBehaviour
         }
         UpdateUI();
         return false;
+
+        //Add a check to see if the player has enough money to buy the tower
+        //If they do, subtract the price from their money and return true
+        //If they don't, return false
+
     }
 }

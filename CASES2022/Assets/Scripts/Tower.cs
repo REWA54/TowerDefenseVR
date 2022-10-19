@@ -85,10 +85,13 @@ public class Tower : MonoBehaviour
     }
     void Update()
     {
+        
             if (TargetGO == null)
             {
+            
                 if (TowerType == TypeSelection.Rail)
                 {
+                    //Disable the line renderer when there is no target
                     railLineRenderer.enabled = false;
                     railHitParticles.Stop();
                     railHitLight.enabled = false;
@@ -98,6 +101,7 @@ public class Tower : MonoBehaviour
             MoveTower(TargetGO.transform.position);
             switch (TowerType)
             {
+                //call the right function depending on the tower type
                 case TypeSelection.Canon:
                     CanonShoot();
                     break;
@@ -141,6 +145,7 @@ public class Tower : MonoBehaviour
         }
         shootCooldown = shootingRate;
         Shoot();
+        // Canon shoot if the cooldown is over and the target is selected
     }
     void MissileLaunch()
     {
@@ -155,14 +160,17 @@ public class Tower : MonoBehaviour
         }
         shootCooldown = shootingRate;
         Launch();
+        // Missile launch if the cooldown is over and the target is selected
     }
     void Launch()
     {
         GameObject Missile = Instantiate(MissilePrefab);
         Missile.GetComponent<Bullet>().Fire(SpawnPointBullet, SpawnPointBullet.forward, bulletSpeed, damagesMultiplicator,TargetGO.transform.position);
+        // Launch a missile
     }
     void LaserRail()
     {
+        // Laser rail point to the target, damage it, show a light and a particle system
        EnemyManager enemyManager = enemyAimed.GetComponent<EnemyManager>();
        enemyManager.TakeDamages(damagesMultiplicator * Time.deltaTime);
 
@@ -182,6 +190,7 @@ public class Tower : MonoBehaviour
     }
     void FindEnemy() 
     {
+        // Find the nearest enemy and set it as the target
          if (!isPlaced)
         {
             return;

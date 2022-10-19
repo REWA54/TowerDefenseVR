@@ -34,7 +34,7 @@ public class Bullet : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         GameObject impactParticles = (GameObject) Instantiate(particlesHit);
-        impactParticles.transform.position = transform.position;
+        impactParticles.transform.position =  transform.position;
         impactParticles.transform.LookAt(GetComponent<Rigidbody>().velocity);
         Destroy(impactParticles, 0.5f);
         if (other.CompareTag("Enemy"))
