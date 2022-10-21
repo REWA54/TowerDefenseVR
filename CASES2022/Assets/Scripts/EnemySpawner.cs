@@ -55,10 +55,10 @@ public class EnemySpawner : MonoBehaviour
 
     void SpawnEnemy(int prefab, int Type)
     {
-        GameObject EnemyInstanciated = (GameObject) Instantiate(enemyPrefabs[prefab],spawnPoint);
+        GameObject EnemyInstanciated = Instantiate(enemyPrefabs[prefab],spawnPoint);
 
         EnemyManager em = EnemyInstanciated.GetComponent<EnemyManager>();
-        em.LoadData(enemyTypes[Type]);
+        //em.LoadData(enemyTypes[Type]);
         em.IncreaseDifficulty(level);
 
         EnemyInstanciated.GetComponent<EnemyMovement>().destinationsPoints = destinationsPoints;

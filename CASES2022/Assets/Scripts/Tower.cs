@@ -87,7 +87,7 @@ public class Tower : MonoBehaviour
     void Update()
     {
         
-            if (TargetGO == null)
+            if (TargetGO == null || !isPlaced)
             {
             
                 if (TowerType == TypeSelection.Rail)

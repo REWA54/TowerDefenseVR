@@ -1,16 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class Trash : MonoBehaviour
 {
     public LevelManager levelManager;
-    private void OnCollisionEnter(Collision collision)
+
+    public void Recycle(HoverEnterEventArgs args)
     {
-        if (collision.gameObject.tag != "Tower")
+        GameObject go = args.interactableObject.transform.gameObject;
+        if (go.CompareTag("Tower"))
         {
-            return;
+            levelManager.Refund(go.GetComponent<Tower>().value);
+            Destroy(go);
         }
-        levelManager.Refund(collision.gameObject.GetComponent<Tower>().value);
     }
 }
