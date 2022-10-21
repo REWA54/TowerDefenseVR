@@ -52,6 +52,7 @@ public class Tower : MonoBehaviour
     }
     void LoadData(TowerData Data)
     {
+        // Tower Stats
         range = Data.range;
         damagesMultiplicator = Data.damagesMultiplicator;
         price = Data.price;

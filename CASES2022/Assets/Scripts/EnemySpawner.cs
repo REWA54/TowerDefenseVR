@@ -7,6 +7,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] EnemyData[] enemyTypes;
     [SerializeField] GameObject[] enemyPrefabs;
     [SerializeField] Transform spawnPoint;
+    [SerializeField] Transform[] destinationsPoints;
     LevelManager levelManager;
     [SerializeField] Transform enemyTarget;
     int SpawnedEnemy = 0;
@@ -22,7 +23,7 @@ public class EnemySpawner : MonoBehaviour
     }
 
     public int StartSpawn(int actualLevel)
-    {
+    {        
         level = actualLevel;
         enemysToSpawn = Mathf.RoundToInt(Random.Range(level, level*1.2f));
         SpawnedEnemy = 0;
@@ -60,7 +61,7 @@ public class EnemySpawner : MonoBehaviour
         em.LoadData(enemyTypes[Type]);
         em.IncreaseDifficulty(level);
 
-        EnemyInstanciated.GetComponent<EnemyMovement>().Destination = enemyTarget;
+        EnemyInstanciated.GetComponent<EnemyMovement>().destinationsPoints = destinationsPoints;
         levelManager.Enemys.Add(EnemyInstanciated);
         SpawnedEnemy++;
     }

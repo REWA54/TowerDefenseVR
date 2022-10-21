@@ -68,6 +68,13 @@ public class LevelManager : MonoBehaviour
         return true;
         // check if all enemys are dead
     }
+    
+    public void Refund(float cost)
+    {
+        money += cost;
+        UpdateUI();
+    }
+
 
     public bool Buy(float price)
     {
