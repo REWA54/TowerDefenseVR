@@ -35,6 +35,7 @@ public class Bullet : MonoBehaviour
         GameObject impactParticles = (GameObject) Instantiate(particlesHit);
         impactParticles.transform.position =  transform.position;
         impactParticles.transform.LookAt(GetComponent<Rigidbody>().velocity);
+        //impactParticles.GetComponent<MeshRenderer>().material = other.GetComponent<MeshRenderer>().material;
         Destroy(impactParticles, 0.5f);
         if (other.CompareTag("Enemy"))
         {

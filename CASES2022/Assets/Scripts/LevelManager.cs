@@ -22,7 +22,7 @@ public class LevelManager : MonoBehaviour
     }
     public void LevelEnd()
     {
-        Debug.Log("Level ended"); ;
+        RestartScene();
     }
     public void LevelStart()
     {

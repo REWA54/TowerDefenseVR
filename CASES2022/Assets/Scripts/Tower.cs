@@ -116,9 +116,10 @@ public class Tower : MonoBehaviour
     }
     public void Upgrade()
     {
-        shootingRate /= upgradeMultiplicator;
-        bulletSpeed *= upgradeMultiplicator;
-        range *= upgradeMultiplicator;
+        // shootingRate /= upgradeMultiplicator;
+        // bulletSpeed *= upgradeMultiplicator;
+        // range *= upgradeMultiplicator;
+        damagesMultiplicator *= upgradeMultiplicator;
         value += upgradePrice;
         upgradePrice = Mathf.Round(
             price * Mathf.Pow(upgradeMultiplicator,level)
