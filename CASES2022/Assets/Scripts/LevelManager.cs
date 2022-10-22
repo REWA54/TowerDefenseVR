@@ -7,6 +7,7 @@ using TMPro;
 public class LevelManager : MonoBehaviour
 {
     public GameObject Home;
+    public SaveSystem saveSystem;
     public List<GameObject> Enemys;
     public int level = 0;
     [SerializeField] EnemySpawner enemySpawner;
@@ -26,10 +27,13 @@ public class LevelManager : MonoBehaviour
     }
     public void LevelStart()
     {
+        
         if (!CheckWaveEnd())
         {
             return;
         }
+        saveSystem.SaveIfNeeded(level);
+        level++;
         Enemys.Clear();
         enemysThisWave = 0;
         enemysKilledThisWave = 0;
@@ -52,10 +56,6 @@ public class LevelManager : MonoBehaviour
         money += lootAmount;
         
         enemysKilledThisWave++;
-        if (CheckWaveEnd())
-        {
-            level++;
-        }
         UpdateUI();
     }
 

@@ -23,7 +23,7 @@ public class EnemySpawner : MonoBehaviour
     }
 
     public int StartSpawn(int actualLevel)
-    {        
+    {
         level = actualLevel;
         enemysToSpawn = Mathf.RoundToInt(Random.Range(level, level*1.2f));
         SpawnedEnemy = 0;
@@ -56,7 +56,6 @@ public class EnemySpawner : MonoBehaviour
     void SpawnEnemy(int prefab, int Type)
     {
         GameObject EnemyInstanciated = Instantiate(enemyPrefabs[prefab],spawnPoint);
-
         EnemyManager em = EnemyInstanciated.GetComponent<EnemyManager>();
         //em.LoadData(enemyTypes[Type]);
         em.IncreaseDifficulty(level);

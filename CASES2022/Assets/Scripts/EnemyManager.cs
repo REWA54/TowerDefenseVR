@@ -1,5 +1,5 @@
 using UnityEngine;
-using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class EnemyManager : MonoBehaviour
 {
@@ -7,11 +7,13 @@ public class EnemyManager : MonoBehaviour
     float lootAmount;
     public float Damage;
     [SerializeField] float Life;
+    public Image LifeFillAmount;
     public GameObject deathEffect;
     public bool alive;
     public Transform targetPoint;
     LevelManager levelManager;
     int level = 1;
+    float maxLife;
     public float DifficultyMultiplicator = 1.2f;
     
     private void Awake()
@@ -19,12 +21,14 @@ public class EnemyManager : MonoBehaviour
         LoadData(Data);
         alive = true;
         levelManager = FindObjectOfType<LevelManager>();
+        LifeFillAmount.fillAmount = Life;
     }
 
     public void LoadData(EnemyData Data)
     {
         Damage = Data.Damage;
         Life = Data.Life;
+        maxLife = Data.Life;
         lootAmount = Data.lootMoney;
         GetComponent<EnemyMovement>().speed = Data.Speed;
     }
@@ -32,10 +36,12 @@ public class EnemyManager : MonoBehaviour
     public void TakeDamages(float hitDamages)
     {
         Life -= hitDamages;
+        LifeFillAmount.fillAmount = Life/ maxLife;
         if (Life<=0)
         {
             Die();
         }
+        
     }
     public void IncreaseDifficulty(int spawnLevel){
         // Increase difficulty by level
