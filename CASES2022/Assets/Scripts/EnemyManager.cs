@@ -36,7 +36,7 @@ public class EnemyManager : MonoBehaviour
     public void TakeDamages(float hitDamages)
     {
         Life -= hitDamages;
-        LifeFillAmount.fillAmount = Life/ maxLife;
+        LifeFillAmount.fillAmount = Life / maxLife;
         if (Life<=0)
         {
             Die();
@@ -44,10 +44,12 @@ public class EnemyManager : MonoBehaviour
         
     }
     public void IncreaseDifficulty(int spawnLevel){
+        
         // Increase difficulty by level
         level = spawnLevel;
         Damage *= Mathf.Pow(DifficultyMultiplicator,level);
         Life *= Mathf.Pow(DifficultyMultiplicator,level);
+        maxLife = Life;
     }
 
     void Die()
