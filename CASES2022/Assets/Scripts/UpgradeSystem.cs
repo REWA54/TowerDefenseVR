@@ -8,6 +8,7 @@ public class UpgradeSystem : MonoBehaviour
 {
     GameObject thingToUpgrade;
     public LevelManager levelManager;
+    public ParticleSystem upgradeParticles;
     public TMP_Text priceUI;
     public float upgradePrice;
     public void Upgrade()
@@ -33,6 +34,7 @@ public class UpgradeSystem : MonoBehaviour
                 break;
         }
         ChangeObjectToUpgrade();
+        upgradeParticles.Play();
     }
 
     public void ChooseThingToUprade(SelectEnterEventArgs args)

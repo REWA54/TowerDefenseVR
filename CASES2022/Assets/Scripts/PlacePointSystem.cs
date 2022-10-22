@@ -6,6 +6,7 @@ using UnityEngine.XR.Interaction.Toolkit;
 public class PlacePointSystem : MonoBehaviour
 {
     bool asATower;
+    public ParticleSystem placeParticles;
 
     public bool AsATower()
     {
@@ -16,6 +17,7 @@ public class PlacePointSystem : MonoBehaviour
         if (args.interactableObject.transform.gameObject.CompareTag("Tower"))
         {
             args.interactableObject.transform.gameObject.GetComponent<Tower>().Placement(true);
+            placeParticles.Play();
         }
     }
     public void TowerRemove(SelectExitEventArgs args)
