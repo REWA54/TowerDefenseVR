@@ -6,14 +6,14 @@ using UnityEngine.AI;
 public class EnemyMovement : MonoBehaviour
 {
     public Transform Destination;
-    public Transform[] destinationsPoints;
+    public Vector3[] destinationsPoints;
     int destinationIndex = 0;
     
     public float speed;
    
     void Start()
     {
-        Destination = destinationsPoints[0];
+        Destination.position = destinationsPoints[0];
     }
     
     void Drive()
@@ -21,7 +21,7 @@ public class EnemyMovement : MonoBehaviour
         if (Vector3.Distance(transform.position,Destination.position)<0.1f)
         {
             destinationIndex++;
-            Destination = destinationsPoints[destinationIndex];
+            Destination.position = destinationsPoints[destinationIndex];
         }
         transform.position = Vector3.MoveTowards(transform.position, Destination.position, speed * Time.deltaTime);
     }

@@ -8,6 +8,7 @@ public class LevelManager : MonoBehaviour
 {
     public GameObject Home;
     public SaveSystem saveSystem;
+    public Map[] maps;
     public List<GameObject> Enemys;
     public int level = 0;
     [SerializeField] EnemySpawner enemySpawner;
@@ -16,10 +17,12 @@ public class LevelManager : MonoBehaviour
     float money;
     int enemysThisWave = 0;
     int enemysKilledThisWave =0;
+    GameObject map;
     void Start()
     {
         money = 100f;
-        UpdateUI();        
+        UpdateUI();
+       // LoadMap(0);
     }
     public void LevelEnd()
     {
@@ -40,7 +43,20 @@ public class LevelManager : MonoBehaviour
         enemysThisWave = enemySpawner.StartSpawn(level);
         UpdateUI();
     }
-
+    public void LoadMap(int index)
+    {
+       
+        if (!CheckWaveEnd())
+        {
+            return;
+        }
+        if (map != null)
+        {
+            Destroy(map);
+        }
+        map = Instantiate(maps[index].GO, Vector3.zero, Quaternion.identity);
+        enemySpawner.destinationsPoints = maps[index].destinationsPoints;
+    }
     private void UpdateUI()
     {
         foreach (TMP_Text text in moneyUI)

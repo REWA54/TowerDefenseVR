@@ -6,7 +6,7 @@ public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] GameObject[] enemyPrefabs;
     [SerializeField] Transform spawnPoint;
-    [SerializeField] Transform[] destinationsPoints;
+    public Vector3[] destinationsPoints;
     LevelManager levelManager;
     int SpawnedEnemy = 0;
     int enemysToSpawn;
