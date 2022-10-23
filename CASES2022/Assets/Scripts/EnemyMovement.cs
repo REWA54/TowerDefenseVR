@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class EnemyMovement : MonoBehaviour
 {
-    public Transform Destination;
+    public Vector3 Destination;
     public Vector3[] destinationsPoints;
     int destinationIndex = 0;
     
@@ -13,17 +13,17 @@ public class EnemyMovement : MonoBehaviour
    
     void Start()
     {
-        Destination.position = destinationsPoints[0];
+        Destination = destinationsPoints[0];
     }
     
     void Drive()
     {      
-        if (Vector3.Distance(transform.position,Destination.position)<0.1f)
+        if (Vector3.Distance(transform.position,Destination)<0.1f)
         {
             destinationIndex++;
-            Destination.position = destinationsPoints[destinationIndex];
+            Destination = destinationsPoints[destinationIndex];
         }
-        transform.position = Vector3.MoveTowards(transform.position, Destination.position, speed * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, Destination, speed * Time.deltaTime);
     }
 
 

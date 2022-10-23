@@ -13,7 +13,8 @@ public class Pistol : MonoBehaviour
     public float damagesMultiplier;
     public int Level;
     [SerializeField] TMP_Text LevelUI;
-    
+    [SerializeField] ParticleSystem shootParticles;
+
     private void Start()
     {
         XRGrabInteractable grabbable = GetComponent<XRGrabInteractable>();
@@ -22,6 +23,7 @@ public class Pistol : MonoBehaviour
 
     void FireBullet(ActivateEventArgs args)
     {
+        shootParticles.Play();
         GameObject Bullet = Instantiate(BulletGO);
         Bullet.GetComponent<Bullet>().Fire(BarrelEnd, BarrelEnd.forward, FireSpeed,damagesMultiplier,Vector3.zero);
     }

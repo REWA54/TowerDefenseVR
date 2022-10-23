@@ -22,7 +22,7 @@ public class LevelManager : MonoBehaviour
     {
         money = 100f;
         UpdateUI();
-       // LoadMap(0);
+        LoadMap(0);
     }
     public void LevelEnd()
     {
@@ -31,7 +31,7 @@ public class LevelManager : MonoBehaviour
     public void LevelStart()
     {
         
-        if (!CheckWaveEnd())
+        if (!CheckWaveEnd() || map == null)
         {
             return;
         }

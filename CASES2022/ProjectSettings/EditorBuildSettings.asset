@@ -6,14 +6,18 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/_Scenes/TowerDefense 1.unity
+    guid: cef9a1657fa23ff49a2c9b933cf65084
+  - enabled: 0
     path: Assets/_Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
-  - enabled: 1
-    path: Assets/ZSerializer/Samples/2 - Scene Groups/House/Scenes/Bedroom.unity
-    guid: 6e5d25c2c4e038e41bd9a74e6d1c9da4
-  - enabled: 1
-    path: Assets/ZSerializer/Samples/2 - Scene Groups/House/Scenes/Kitchen.unity
-    guid: 6fc5df3daea906e4c8ee740fdf45dfd8
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   m_configObjects:
+    Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 052457162ac30154c83322de61fd02c1, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 410062f9e2274a84db3b26a111476057, type: 2}
     com.unity.xr.openxr.settings4: {fileID: 11400000, guid: e6dec9f532d5db042bd83e9ffdacc91b, type: 2}
