@@ -10,8 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ccf348760c7a4fd428ae662a8aa6d567, type: 3}
-  m_Name: EnemyDebug
+  m_Name: Soldier
   m_EditorClassIdentifier: 
   Damage: 5
-  Life: 10
-  Speed: 0.5
+  Life: 5
+  Speed: 15
+  lootMoney: 5

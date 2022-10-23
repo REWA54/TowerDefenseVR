@@ -4,12 +4,10 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    [SerializeField] EnemyData[] enemyTypes;
     [SerializeField] GameObject[] enemyPrefabs;
     [SerializeField] Transform spawnPoint;
     [SerializeField] Transform[] destinationsPoints;
     LevelManager levelManager;
-    [SerializeField] Transform enemyTarget;
     int SpawnedEnemy = 0;
     int enemysToSpawn;
     int level;
@@ -36,8 +34,8 @@ public class EnemySpawner : MonoBehaviour
         if (SpawnedEnemy <= enemysToSpawn  && SpawnCooldown(spawnRate) && LevelLaunched)
         {
             SpawnEnemy(
-                Mathf.RoundToInt( Random.Range(0,enemyPrefabs.Length)),
-                Mathf.RoundToInt( Random.Range(0,enemyTypes.Length))
+                Mathf.RoundToInt( Random.Range(0,enemyPrefabs.Length))
+               
                 );
         }
     }
@@ -53,7 +51,7 @@ public class EnemySpawner : MonoBehaviour
         return true;
     }
 
-    void SpawnEnemy(int prefab, int Type)
+    void SpawnEnemy(int prefab)
     {
         GameObject EnemyInstanciated = Instantiate(enemyPrefabs[prefab],spawnPoint);
         EnemyManager em = EnemyInstanciated.GetComponent<EnemyManager>();
