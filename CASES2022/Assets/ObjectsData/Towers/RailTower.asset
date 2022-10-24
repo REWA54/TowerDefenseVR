@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: RailTower
   m_EditorClassIdentifier: 
   range: 10
-  damagesMultiplicator: 0
+  damagesMultiplicator: 1.2
   price: 30
   bulletVelocity: 0
   shootingRate: 0
