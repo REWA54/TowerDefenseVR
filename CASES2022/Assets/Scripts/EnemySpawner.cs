@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
@@ -7,6 +8,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] GameObject[] enemyPrefabs;
     [SerializeField] Transform spawnPoint;
     public Vector3[] destinationsPoints;
+    public Animation openDoor;
     LevelManager levelManager;
     int SpawnedEnemy = 0;
     int enemysToSpawn;
@@ -18,6 +20,8 @@ public class EnemySpawner : MonoBehaviour
     void Start()
     {
         levelManager = FindObjectOfType<LevelManager>();
+        spawnRate -= openDoor.GetClip("military_building").length / 2;
+        Debug.Log(openDoor.GetClip("military_building").length);
     }
 
     public int StartSpawn(int actualLevel)
@@ -39,6 +43,14 @@ public class EnemySpawner : MonoBehaviour
                 );
         }
     }
+
+    IEnumerator OpenDoor()
+    {
+        openDoor.Play("military_building");
+        Debug.Log("Animation Door played");
+        yield return new WaitForSeconds(openDoor.GetClip("military_building").length / 2);
+    }
+    
     bool SpawnCooldown(float spawnRateUpdate)
     {
         if (spawnCooldown > 0)
@@ -53,6 +65,7 @@ public class EnemySpawner : MonoBehaviour
 
     void SpawnEnemy(int prefab)
     {
+        StartCoroutine(OpenDoor());
         GameObject EnemyInstanciated = Instantiate(enemyPrefabs[prefab],spawnPoint);
         EnemyManager em = EnemyInstanciated.GetComponent<EnemyManager>();
         //em.LoadData(enemyTypes[Type]);

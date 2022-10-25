@@ -23,6 +23,7 @@ public class LevelManager : MonoBehaviour
         money = 100f;
         UpdateUI();
         LoadMap(0);
+        LevelStart();
     }
     public void LevelEnd()
     {

@@ -16,14 +16,15 @@ public class EnemyMovement : MonoBehaviour
         Destination = destinationsPoints[0];
     }
     
-    void Drive()
+    void Translate()
     {      
         if (Vector3.Distance(transform.position,Destination)<0.1f)
         {
             destinationIndex++;
             Destination = destinationsPoints[destinationIndex];
         }
-        transform.position = Vector3.MoveTowards(transform.position, Destination, speed * Time.deltaTime);
+        // transform.position = Vector3.MoveTowards(transform.position, Destination, speed * Time.deltaTime);
+        transform.Translate(Vector3.forward * speed * Time.deltaTime);
     }
 
 
@@ -31,6 +32,6 @@ public class EnemyMovement : MonoBehaviour
         private void Update()
     {
         transform.LookAt(Destination);
-        Drive();       
+        Translate();       
     }
 }
