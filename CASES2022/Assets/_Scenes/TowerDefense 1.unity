@@ -8559,6 +8559,10 @@ PrefabInstance:
       value: energy_box_sk
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 8b7418f51d7726c428f2b80bbd92b32e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 8b7418f51d7726c428f2b80bbd92b32e, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
