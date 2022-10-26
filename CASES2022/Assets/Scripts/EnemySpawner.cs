@@ -8,7 +8,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] GameObject[] enemyPrefabs;
     [SerializeField] Transform spawnPoint;
     public Vector3[] destinationsPoints;
-    public Animation openDoor;
+    public Animator openDoor;
     LevelManager levelManager;
     int SpawnedEnemy = 0;
     int enemysToSpawn;
@@ -20,8 +20,8 @@ public class EnemySpawner : MonoBehaviour
     void Start()
     {
         levelManager = FindObjectOfType<LevelManager>();
-        spawnRate -= openDoor.GetClip("military_building").length / 2;
-        Debug.Log(openDoor.GetClip("military_building").length);
+        spawnRate -= openDoor.GetCurrentAnimatorClipInfo(0).Length / 2;
+        Debug.Log(openDoor.GetCurrentAnimatorClipInfo(0).Length);
     }
 
     public int StartSpawn(int actualLevel)
@@ -48,7 +48,7 @@ public class EnemySpawner : MonoBehaviour
     {
         openDoor.Play("military_building");
         Debug.Log("Animation Door played");
-        yield return new WaitForSeconds(openDoor.GetClip("military_building").length / 2);
+        yield return new WaitForSeconds(openDoor.GetCurrentAnimatorClipInfo(0).Length / 2);
     }
     
     bool SpawnCooldown(float spawnRateUpdate)
