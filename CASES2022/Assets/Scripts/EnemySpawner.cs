@@ -20,8 +20,6 @@ public class EnemySpawner : MonoBehaviour
     void Start()
     {
         levelManager = FindObjectOfType<LevelManager>();
-        spawnRate -= openDoor.GetCurrentAnimatorClipInfo(0).Length / 2;
-        Debug.Log(openDoor.GetCurrentAnimatorClipInfo(0).Length);
     }
 
     public int StartSpawn(int actualLevel)
@@ -46,9 +44,8 @@ public class EnemySpawner : MonoBehaviour
 
     IEnumerator OpenDoor()
     {
-        openDoor.Play("military_building");
-        Debug.Log("Animation Door played");
-        yield return new WaitForSeconds(openDoor.GetCurrentAnimatorClipInfo(0).Length / 2);
+        openDoor.Play("EnemySpawnBaseAnim");
+        yield return new WaitForSeconds(0.5f);
     }
     
     bool SpawnCooldown(float spawnRateUpdate)
