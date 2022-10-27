@@ -1,5 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
+using DG.Tweening;
 
 public class EnemyManager : MonoBehaviour
 {
@@ -7,6 +9,9 @@ public class EnemyManager : MonoBehaviour
     float lootAmount;
     public float Damage;
     [SerializeField] float Life;
+    [SerializeField] GameObject UICanvas;
+    [SerializeField] TMP_Text lifeText;
+    Transform playerCamera;
     public Image LifeFillAmount;
     public GameObject deathEffect;
     public bool alive;
@@ -21,7 +26,9 @@ public class EnemyManager : MonoBehaviour
         LoadData(Data);
         alive = true;
         levelManager = FindObjectOfType<LevelManager>();
+        playerCamera = FindObjectOfType<Camera>().transform;
         LifeFillAmount.fillAmount = Life;
+        UpdateUI();
     }
 
     public void LoadData(EnemyData Data)
@@ -31,17 +38,27 @@ public class EnemyManager : MonoBehaviour
         maxLife = Data.Life;
         lootAmount = Data.lootMoney;
         GetComponent<EnemyMovement>().speed = Data.Speed;
+        
     }
-
+    void Update()
+    {
+        UICanvas.gameObject.transform.LookAt(playerCamera.transform);
+    }
     public void TakeDamages(float hitDamages)
     {
         Life -= hitDamages;
-        LifeFillAmount.fillAmount = Life / maxLife;
+        UpdateUI();
         if (Life<=0)
         {
             Die();
         }
         
+    }
+
+    void UpdateUI() {
+        LifeFillAmount.fillAmount = Life / maxLife;
+        lifeText.text = Mathf.Round(Life).ToString();
+        lifeText.transform.DOPunchScale(Vector3.one*1.1f, 0.01f);
     }
     public void IncreaseDifficulty(int spawnLevel){
         
