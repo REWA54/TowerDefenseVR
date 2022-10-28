@@ -28,9 +28,12 @@ public class EnemyManager : MonoBehaviour
         levelManager = FindObjectOfType<LevelManager>();
         playerCamera = FindObjectOfType<Camera>().transform;
         LifeFillAmount.fillAmount = Life;
+        
+    }
+    private void Start()
+    {
         UpdateUI();
     }
-
     public void LoadData(EnemyData Data)
     {
         Damage = Data.Damage;
@@ -58,7 +61,7 @@ public class EnemyManager : MonoBehaviour
     void UpdateUI() {
         LifeFillAmount.fillAmount = Life / maxLife;
         lifeText.text = Mathf.Round(Life).ToString();
-        lifeText.transform.DOPunchScale(Vector3.one*1.1f, 0.01f);
+        lifeText.transform.DOPunchScale(Vector3.one, 0.1f);
     }
     public void IncreaseDifficulty(int spawnLevel){
         

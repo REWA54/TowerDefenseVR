@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 using TMPro;
+using DG.Tweening;
 
 public class UpgradeSystem : MonoBehaviour
 {
@@ -34,6 +35,7 @@ public class UpgradeSystem : MonoBehaviour
                 break;
         }
         ChangeObjectToUpgrade();
+        thingToUpgrade.gameObject.transform.DOPunchScale(Vector3.one * 1.1f, 0.1f);
         upgradeParticles.Play();
     }
 
