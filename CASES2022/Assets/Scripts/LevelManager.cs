@@ -6,6 +6,9 @@ using TMPro;
 
 public class LevelManager : MonoBehaviour
 {
+    [InspectorButton("OnButtonClicked")]
+    public string START;
+    
     public GameObject Home;
     public SaveSystem saveSystem;
     public Map[] maps;
@@ -23,12 +26,17 @@ public class LevelManager : MonoBehaviour
         money = 100f;
         UpdateUI();
         LoadMap(0);
-        LevelStart();
+       // LevelStart();
     }
     public void LevelEnd()
     {
         RestartScene();
     }
+    private void OnButtonClicked()
+    {
+        LevelStart();
+    }
+
     public void LevelStart()
     {
         

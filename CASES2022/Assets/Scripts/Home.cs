@@ -28,9 +28,9 @@ public class Home : MonoBehaviour
     {
         if (other.CompareTag("Enemy"))
         {
-           
-            TakeDamages( other.GetComponent<EnemyManager>().Damage);
-            Destroy(other.gameObject);
+            EnemyManager enemyManager = other.GetComponent<EnemyManager>();
+            TakeDamages( enemyManager.Damage);
+            enemyManager.Die(false);
         }
     }
     private void Update()
@@ -44,7 +44,7 @@ public class Home : MonoBehaviour
         {
             Die();
         }
-        homeGameObject.transform.DOPunchScale(Vector3.one * 0.2f, 0.1f);
+        homeGameObject.transform.DOPunchScale((Vector3.one - Vector3.up) * 0.1f, 0.1f);
         UpdateUI();
     }
     void UpdateUI()

@@ -5,6 +5,10 @@ using DG.Tweening;
 
 public class EnemyManager : MonoBehaviour
 {
+    [InspectorButton("OnButtonClicked")]
+    public string KILL;
+    
+    
     public EnemyData Data;
     float lootAmount;
     public float Damage;
@@ -12,6 +16,7 @@ public class EnemyManager : MonoBehaviour
     [SerializeField] GameObject UICanvas;
     [SerializeField] TMP_Text lifeText;
     Transform playerCamera;
+    public GameObject Loot;
     public Image LifeFillAmount;
     public GameObject deathEffect;
     public bool alive;
@@ -20,7 +25,11 @@ public class EnemyManager : MonoBehaviour
     int level = 1;
     float maxLife;
     public float DifficultyMultiplicator = 1.2f;
-    
+
+    private void OnButtonClicked()
+    {
+        Die(true);
+    }
     private void Awake()
     {
         LoadData(Data);
@@ -53,7 +62,7 @@ public class EnemyManager : MonoBehaviour
         UpdateUI();
         if (Life<=0)
         {
-            Die();
+            Die(true);
         }
         
     }
@@ -72,12 +81,28 @@ public class EnemyManager : MonoBehaviour
         maxLife = Life;
     }
 
-    void Die()
+    public void Die(bool isDestroyedByPlayer)
     {
-        levelManager.Loot(lootAmount*Mathf.Pow(DifficultyMultiplicator,level));
-        alive = false;
+        if (isDestroyedByPlayer)
+        {
+            levelManager.Loot(lootAmount * Mathf.Pow(DifficultyMultiplicator, level));
+            //for (int i = 0; i < lootAmount; i++)
+            //{
+            //    GameObject LootGO = Instantiate(Loot, transform.position + (Random.Range(0.1f,0.1f)*Vector3.one), Quaternion.identity);
+            //    LootGO.transform.DOJump(playerCamera.position - new Vector3(0, playerCamera.position.y, 0), 1f, 1, 1f, false);
+            //    Destroy(LootGO, 1f);
+            //}           
+        }
+        else
+        {
+            levelManager.Loot(0);
+        }
+        alive = false;       
         GameObject DeathEffect = (GameObject) Instantiate(deathEffect,transform);
-        Destroy(DeathEffect,0.1f);
+        Destroy(DeathEffect,1f);
+        gameObject.SetActive(false);
         Destroy(gameObject);
     }
+
+  
 }
