@@ -97,10 +97,10 @@ public class EnemyManager : MonoBehaviour
         {
             levelManager.Loot(0);
         }
-        alive = false;       
-        GameObject DeathEffect = (GameObject) Instantiate(deathEffect,transform);
-        Destroy(DeathEffect,1f);
-        gameObject.SetActive(false);
+        alive = false;
+        GameObject DeathEffect = Instantiate(deathEffect, targetPoint.transform.position, Quaternion.identity);
+        //Destroy(DeathEffect,1f);
+        //gameObject.SetActive(false);
         Destroy(gameObject);
     }
 
