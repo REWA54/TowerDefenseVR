@@ -174,7 +174,7 @@ public class Tower : MonoBehaviour
     {
         // Laser rail point to the target, damage it, show a light and a particle system
        EnemyManager enemyManager = enemyAimed.GetComponent<EnemyManager>();
-       enemyManager.TakeDamages(damagesMultiplicator * Time.deltaTime);
+        enemyManager.TakeDamages(damagesMultiplicator * Time.deltaTime,false) ;
 
        if(railLineRenderer.enabled == false){
             railLineRenderer.enabled = true;

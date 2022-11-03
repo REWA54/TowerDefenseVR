@@ -56,10 +56,10 @@ public class EnemyManager : MonoBehaviour
     {
         UICanvas.gameObject.transform.LookAt(playerCamera.transform);
     }
-    public void TakeDamages(float hitDamages)
+    public void TakeDamages(float hitDamages , bool animate)
     {
         Life -= hitDamages;
-        UpdateUI();
+        UpdateUI(animate);
         if (Life<=0)
         {
             Die(true);
@@ -67,10 +67,14 @@ public class EnemyManager : MonoBehaviour
         
     }
 
-    void UpdateUI() {
+    void UpdateUI(bool punchScale) {
         LifeFillAmount.fillAmount = Life / maxLife;
         lifeText.text = Mathf.Round(Life).ToString();
-        lifeText.transform.DOPunchScale(Vector3.one, 0.1f);
+        if (punchScale)
+        {
+            lifeText.transform.DOPunchScale(Vector3.one, 0.1f);
+        }
+        
     }
     public void IncreaseDifficulty(int spawnLevel){
         
