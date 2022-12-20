@@ -41,7 +41,7 @@ public class EnemyManager : MonoBehaviour
     }
     private void Start()
     {
-        UpdateUI();
+        UpdateUI(true);
     }
     public void LoadData(EnemyData Data)
     {
@@ -73,6 +73,7 @@ public class EnemyManager : MonoBehaviour
         if (punchScale)
         {
             lifeText.transform.DOPunchScale(Vector3.one, 0.1f);
+           
         }
         
     }

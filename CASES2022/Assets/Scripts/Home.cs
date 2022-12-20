@@ -13,14 +13,15 @@ public class Home : MonoBehaviour
     public GameObject homeGameObject;
     public GameObject UIHome;
     public Image LifeFillAmount;
+    [SerializeField] int UpgradeLifeAmount;
+    [SerializeField] float UpgradePrice;
 
 
     private void Start()
     {
         levelManager = FindObjectOfType<LevelManager>();
         CurrentLife = Life;
-        UpdateUI();
-        
+        UpdateUI();        
         
     }
 
@@ -52,6 +53,16 @@ public class Home : MonoBehaviour
         UIHome.GetComponentInChildren<TextMeshProUGUI>().text = CurrentLife.ToString();
         LifeFillAmount.fillAmount = CurrentLife / Life;
 
+    }
+    public void UpgradeHome()
+    {
+        if (levelManager.Buy(UpgradePrice))
+        {
+            Life += UpgradeLifeAmount;
+            CurrentLife += UpgradeLifeAmount;
+            UpgradePrice *= 1.3f;
+            UpdateUI();
+        }
     }
     void Die()
     {
