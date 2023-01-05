@@ -61,6 +61,7 @@ public class Home : MonoBehaviour
             Life += UpgradeLifeAmount;
             CurrentLife += UpgradeLifeAmount;
             UpgradePrice *= 1.3f;
+            homeGameObject.transform.DOPunchScale((Vector3.one - Vector3.up) * 0.1f, 0.1f);
             UpdateUI();
         }
     }
