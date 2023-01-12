@@ -16,7 +16,7 @@ public class EnemyManager : MonoBehaviour
     [SerializeField] GameObject UICanvas;
     [SerializeField] TMP_Text lifeText;
     Transform playerCamera;
-    public GameObject Loot;
+    //public GameObject Loot;
     public Image LifeFillAmount;
     public GameObject deathEffect;
     public bool alive;
