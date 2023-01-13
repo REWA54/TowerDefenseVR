@@ -77,7 +77,7 @@ PrefabInstance:
     - target: {fileID: 4150031657088777989, guid: 3f176c4e899aa774cb5e72a5617f7791, type: 3}
       propertyPath: deathEffect
       value: 
-      objectReference: {fileID: 5908066195548668840, guid: 2ea328a241cac784c9f36b768175afda, type: 3}
+      objectReference: {fileID: 8599106121654121219, guid: 1da4f89678adc9842b7554aca217e02b, type: 3}
     - target: {fileID: 4150031657088777989, guid: 3f176c4e899aa774cb5e72a5617f7791, type: 3}
       propertyPath: targetPoint
       value: 

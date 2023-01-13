@@ -263,9 +263,8 @@ MonoBehaviour:
   Life: 0
   UICanvas: {fileID: 6321458988935474108}
   lifeText: {fileID: 2644427269330528016}
-  Loot: {fileID: 4708305915451226527, guid: c0999b9244c66254c992d1f38818642c, type: 3}
   LifeFillAmount: {fileID: 3906066899408675990}
-  deathEffect: {fileID: 5908066195548668840, guid: 2ea328a241cac784c9f36b768175afda, type: 3}
+  deathEffect: {fileID: 8599106121654121219, guid: 1da4f89678adc9842b7554aca217e02b, type: 3}
   alive: 1
   targetPoint: {fileID: 0}
   DifficultyMultiplicator: 1.2
