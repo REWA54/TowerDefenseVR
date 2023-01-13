@@ -29,7 +29,7 @@ public class Pistol : MonoBehaviour
     void FireBullet(ActivateEventArgs args)
     {
         shootParticles.Play();
-        xrController.SendHapticImpulse(1f, 0.2f);
+        xrController.SendHapticImpulse(0.3f, 0.1f);
         GameObject Bullet = Instantiate(BulletGO);
         Bullet.GetComponent<Bullet>().Fire(BarrelEnd, BarrelEnd.forward, FireSpeed,damagesMultiplier,Vector3.zero);
     }
