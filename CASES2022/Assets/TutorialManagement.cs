@@ -30,7 +30,6 @@ public class TutorialManagement : MonoBehaviour
 
     private List<bool> ThingsUpgraded;
     int ButtonPressedState;
-    // Start is called before the first frame update
     void Start()
     {
         foreach (var item in PlacePoints)
@@ -161,6 +160,9 @@ public class TutorialManagement : MonoBehaviour
             case "Tower Upgraded":
                 // Set active the button to finish tutorial
                 break;
+            case "Finish Tutorial":
+                LoadState(4);
+                    break;
         }
     }
 }
