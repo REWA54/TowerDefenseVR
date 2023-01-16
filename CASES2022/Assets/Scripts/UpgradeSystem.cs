@@ -7,18 +7,31 @@ using DG.Tweening;
 
 public class UpgradeSystem : MonoBehaviour
 {
+    [SerializeField] bool Tutorial;
     GameObject thingToUpgrade;
     public LevelManager levelManager;
     public ParticleSystem upgradeParticles;
     public TMP_Text priceUI;
     public float upgradePrice;
+    private TutorialManagement tutorialManagement;
+
+    private void Start()
+    {
+        if (Tutorial)
+        {
+            tutorialManagement = FindObjectOfType<TutorialManagement>();
+        }
+    }
     public void Upgrade()
     {
         if (thingToUpgrade == null)
         {
             return;
         }
-
+        if (Tutorial)
+        {
+            tutorialManagement.ThingUpgraded(thingToUpgrade.tag);
+        }
         switch (thingToUpgrade.tag)
         {
             case ("Weapon"):

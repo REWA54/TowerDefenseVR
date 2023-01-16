@@ -36,7 +36,8 @@ public class Tower : MonoBehaviour
     ParticleSystem railHitParticles;
     GameObject TargetGO;
     GameObject enemyAimed;
-
+    public bool Tutorial;
+    private TutorialManagement tutorialManagement;
     bool isPlaced = false;
     private void Awake()
     {
@@ -44,7 +45,14 @@ public class Tower : MonoBehaviour
     }
     void Start()
     {
-        levelManager = FindObjectOfType<LevelManager>();
+        if (Tutorial)
+        {
+            tutorialManagement = FindObjectOfType<TutorialManagement>();
+        }
+        else
+        {
+            levelManager = FindObjectOfType<LevelManager>();
+        }        
         value = price;
         upgradePrice = 0.2f * value;
         shootCooldown = 0f;
@@ -192,6 +200,7 @@ public class Tower : MonoBehaviour
     }
     void FindEnemy() 
     {
+       
         // Find the nearest enemy and set it as the target
          if (!isPlaced)
         {
@@ -200,6 +209,25 @@ public class Tower : MonoBehaviour
 
         TargetGO = null;
         float mindistance = float.PositiveInfinity;
+
+        if (Tutorial)
+        {
+            foreach (GameObject enemy in tutorialManagement.Enemys)
+            {
+                if (enemy != null && enemy.GetComponent<EnemyManager>().alive)
+                {
+                    Vector3 posEnemy = enemy.transform.position;
+
+                    float distanceFromTower = Vector3.Distance(posEnemy, transform.position);
+                    if (distanceFromTower < mindistance && distanceFromTower < range)
+                    {
+                        mindistance = distanceFromTower;
+                        enemyAimed = enemy;
+                        TargetGO = enemy.GetComponent<EnemyManager>().targetPoint.gameObject;
+                    }
+                }
+            }
+        }
 
         foreach (GameObject enemy in levelManager.Enemys)
         {

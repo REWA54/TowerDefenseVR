@@ -2,12 +2,10 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using DG.Tweening;
+using UnityEditor;
 
 public class EnemyManager : MonoBehaviour
 {
-    [InspectorButton("OnButtonClicked")]
-    public string KILL;
-    
     
     public EnemyData Data;
     float lootAmount;
@@ -21,11 +19,16 @@ public class EnemyManager : MonoBehaviour
     public bool alive;
     public Transform targetPoint;
     LevelManager levelManager;
+    TutorialManagement tutorialManagement;
+    public float DifficultyMultiplicator = 1.2f;
+    [Header("Tutorial Settings")]
+    public bool Tutorial;
+    public string tutorialStepArgs;
     int level = 1;
     float maxLife;
-    public float DifficultyMultiplicator = 1.2f;
 
-    private void OnButtonClicked()
+    [ContextMenu("Kill")]
+    private void KillWithInspector()
     {
         Die(true);
     }
@@ -33,10 +36,14 @@ public class EnemyManager : MonoBehaviour
     {
         LoadData(Data);
         alive = true;
-        levelManager = FindObjectOfType<LevelManager>();
         playerCamera = FindObjectOfType<Camera>().transform;
         LifeFillAmount.fillAmount = Life;
-        
+        if (!Tutorial)
+        {
+            levelManager = FindObjectOfType<LevelManager>();
+        }
+        else
+            tutorialManagement = FindObjectOfType<TutorialManagement>();
     }
     private void Start()
     {
@@ -76,8 +83,8 @@ public class EnemyManager : MonoBehaviour
         }
         
     }
-    public void IncreaseDifficulty(int spawnLevel){
-        
+    public void IncreaseDifficulty(int spawnLevel)
+    {        
         // Increase difficulty by level
         level = spawnLevel;
         Damage *= Mathf.Pow(DifficultyMultiplicator,level);
@@ -89,7 +96,14 @@ public class EnemyManager : MonoBehaviour
     {
         if (isDestroyedByPlayer)
         {
-            levelManager.Loot(lootAmount * Mathf.Pow(DifficultyMultiplicator, level));
+            if (!Tutorial)
+            {
+                levelManager.Loot(lootAmount * Mathf.Pow(DifficultyMultiplicator, level));
+            }
+            else
+            {
+                tutorialManagement.TutorialStep(tutorialStepArgs);
+            }
             //for (int i = 0; i < lootAmount; i++)
             //{
             //    GameObject LootGO = Instantiate(Loot, transform.position + (Random.Range(0.1f,0.1f)*Vector3.one), Quaternion.identity);

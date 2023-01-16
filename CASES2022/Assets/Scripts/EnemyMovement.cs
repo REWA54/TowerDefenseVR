@@ -12,7 +12,11 @@ public class EnemyMovement : MonoBehaviour
    
     void Start()
     {
-        Destination = destinationsPoints[0];
+        if (destinationsPoints.Length >0)
+        {
+            Destination = destinationsPoints[0];
+        }
+        
     }
     
     void Translate()
