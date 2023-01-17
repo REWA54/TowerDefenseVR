@@ -114,11 +114,11 @@ public class TutorialManagement : MonoBehaviour
         switch(tag)
         {
             case "Weapon":
-                ThingsUpgraded[0] = true;
+                //ThingsUpgraded[0] = true;
                 TutorialStep("Gun Upgraded");
                 break;
             case "Tower":
-                ThingsUpgraded[1] = true;
+                //ThingsUpgraded[1] = true;
                 TutorialStep("Tower Upgraded");
                 break;
         }

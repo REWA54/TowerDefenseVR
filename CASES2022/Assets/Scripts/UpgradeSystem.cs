@@ -31,21 +31,37 @@ public class UpgradeSystem : MonoBehaviour
         if (Tutorial)
         {
             tutorialManagement.ThingUpgraded(thingToUpgrade.tag);
-        }
-        switch (thingToUpgrade.tag)
-        {
-            case ("Weapon"):
-                if (levelManager.Buy(upgradePrice))
-                {
+            switch (thingToUpgrade.tag)
+            {
+                case ("Weapon"):
+
                     thingToUpgrade.GetComponent<Pistol>().Upgrade();
-                }
-                break;
-            case ("Tower"):
-                if (levelManager.Buy(upgradePrice))
-                {
+
+                    break;
+                case ("Tower"):
+
                     thingToUpgrade.GetComponent<Tower>().Upgrade();
-                }
-                break;
+
+                    break;
+            }
+        }
+        else
+        {
+            switch (thingToUpgrade.tag)
+            {
+                case ("Weapon"):
+                    if (levelManager.Buy(upgradePrice))
+                    {
+                        thingToUpgrade.GetComponent<Pistol>().Upgrade();
+                    }
+                    break;
+                case ("Tower"):
+                    if (levelManager.Buy(upgradePrice))
+                    {
+                        thingToUpgrade.GetComponent<Tower>().Upgrade();
+                    }
+                    break;
+            }
         }
         ChangeObjectToUpgrade();
         thingToUpgrade.gameObject.transform.DOPunchScale(Vector3.one * 1.1f, 0.1f);

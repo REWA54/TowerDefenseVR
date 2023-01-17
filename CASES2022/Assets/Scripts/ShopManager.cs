@@ -9,7 +9,7 @@ public class ShopManager : MonoBehaviour
     [SerializeField] Transform spawnPoint;
     public LevelManager LevelManager;
     public ParticleSystem buyParticle;
-    [SerializeField] GameObject Tutorial;
+    [SerializeField] bool Tutorial;
 
     private TutorialManagement tutorialManagement;
 
