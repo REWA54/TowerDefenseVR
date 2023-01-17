@@ -98,7 +98,8 @@ public class EnemyManager : MonoBehaviour
         {
             if (!Tutorial)
             {
-                levelManager.Loot(lootAmount * Mathf.Pow(DifficultyMultiplicator, level));
+                //levelManager.Loot(lootAmount * Mathf.Pow(DifficultyMultiplicator, level));
+                levelManager.Loot(lootAmount);
             }
             else
             {

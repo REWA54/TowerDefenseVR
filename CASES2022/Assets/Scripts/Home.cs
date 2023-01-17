@@ -65,6 +65,7 @@ public class Home : MonoBehaviour
             UpdateUI();
         }
     }
+    [ContextMenu("Kill Home")]
     void Die()
     {
         levelManager.LevelEnd();

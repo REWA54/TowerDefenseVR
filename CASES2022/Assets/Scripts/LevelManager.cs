@@ -13,21 +13,37 @@ public class LevelManager : MonoBehaviour
     public int level = 0;
     [SerializeField] EnemySpawner enemySpawner;
     [SerializeField] TMP_Text[] moneyUI;
+    
     public TMP_Text levelIndicator;
     float money;
     int enemysThisWave = 0;
     int enemysKilledThisWave =0;
     GameObject map;
+
+    [Space]
+    [Header("Finish Canvas")]
+    [SerializeField] GameObject EndCanvas;
+    [SerializeField] TMP_Text EndScoreUI;
+    [SerializeField] TMP_Text HighestScoreUI;
     void Start()
     {
         money = 100f;
         UpdateUI();
+        EndCanvas.SetActive(false);
         LoadMap(0);
        // LevelStart();
     }
     public void LevelEnd()
     {
-        RestartScene();
+        Destroy(map);
+        EndCanvas.SetActive(true);
+        EndScoreUI.text = level.ToString();
+        if (saveSystem.highScore > level)
+        {
+            HighestScoreUI.text = saveSystem.highScore.ToString();
+            return;
+        }
+        HighestScoreUI.text = level.ToString();
     }
     [ContextMenu("Start Level")]
     public void LevelStart()

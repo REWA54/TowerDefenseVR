@@ -6,7 +6,7 @@ using TMPro;
 public class SaveSystem : MonoBehaviour
 {
     public TMP_Text highscoreUI;
-    int highScore;
+    public int highScore;
 
 
     public void SaveIfNeeded(int score)
