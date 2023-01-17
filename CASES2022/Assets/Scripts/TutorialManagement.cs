@@ -33,6 +33,13 @@ public class TutorialManagement : MonoBehaviour
     
     void Start()
     {
+        TextShooting.text = "Welcome to the TowerDefense VR Tutorial";
+        TextTables.text = "Welcome to the TowerDefense VR Tutorial";
+
+        tableGun.SetActive(false);
+        tableShop.SetActive(false);
+        tableUpgrade.SetActive(false);
+
         foreach (var item in PlacePoints)
         {
             item.SetActive(false);
