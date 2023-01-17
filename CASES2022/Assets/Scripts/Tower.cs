@@ -38,6 +38,7 @@ public class Tower : MonoBehaviour
     GameObject enemyAimed;
     public bool Tutorial;
     private TutorialManagement tutorialManagement;
+    public bool isUpgraded;
     bool isPlaced = false;
     private void Awake()
     {
@@ -227,6 +228,7 @@ public class Tower : MonoBehaviour
                     }
                 }
             }
+            return;
         }
 
         foreach (GameObject enemy in levelManager.Enemys)

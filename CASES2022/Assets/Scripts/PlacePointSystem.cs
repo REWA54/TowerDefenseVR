@@ -23,6 +23,10 @@ public class PlacePointSystem : MonoBehaviour
         {
             TutorialManagement tutorialManagement = FindObjectOfType<TutorialManagement>();
             tutorialManagement.TutorialStep("Tower placed " +args.interactableObject.transform.gameObject.GetComponent<Tower>().TowerType);
+            if (args.interactableObject.transform.gameObject.GetComponent<Tower>().isUpgraded)
+            {
+                tutorialManagement.TutorialStep("Tower upgraded placed ");
+            }
         }
     }
     public void TowerRemove(SelectExitEventArgs args)

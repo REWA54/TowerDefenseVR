@@ -30,6 +30,7 @@ public class TutorialManagement : MonoBehaviour
 
     private List<bool> ThingsUpgraded;
     int ButtonPressedState;
+    
     void Start()
     {
         foreach (var item in PlacePoints)
@@ -45,19 +46,28 @@ public class TutorialManagement : MonoBehaviour
         
         LoadState(tutorialState);
     }
-    public void ButtonPressed()
+
+    [ContextMenu("Button Table")]
+    void ButtonsWithInspector0()
     {
-        switch (ButtonPressedState)
+        ButtonPressed(0);
+    }
+    [ContextMenu("Button Shoot")]
+    void ButtonsWithInspector1()
+    {
+        ButtonPressed(1);
+    }
+    public void ButtonPressed(int index)
+    {
+        switch (index)
         {
-            default:
-                return;
             case 0:
                 tableGun.SetActive(true);
                 TextTables.text = "First, grab the gun and kill the Tank behind you";
                 ButtonTables.gameObject.SetActive(false);
                 break;
             case 1:
-                Tanks[2].SetActive(true);
+                TutorialStep("Finish Tutorial");
                 break;
         }
     }
@@ -86,10 +96,11 @@ public class TutorialManagement : MonoBehaviour
                 break;
             case 2:
                 tableShop.SetActive(true);
+                tableUpgrade.SetActive(false);
                 ShopButtons[0].SetActive(true);
                 break;
             case 3:
-                tableShop.SetActive(true);
+                tableShop.SetActive(false);
                 tableUpgrade.SetActive(true);
                 break;
             case 4:
@@ -119,46 +130,85 @@ public class TutorialManagement : MonoBehaviour
         switch (Event)
         {
             case "First Tank Killed":
-                Tanks[1].SetActive(true);
-                break;
-            case "First Moving Tank Killed":
                 TextShooting.text = "A real sniper ! Now look at the new table behind you";
-                LoadState(1);
+                TextTables.text = "Here is the Table for upgrade your Weapon. Place your weapon on the table and press the Upgrade button";
+               LoadState(1);
                 break;
             case "Gun Upgraded":
                 TextTables.text = "Your gun is upgraded ! try it on this Tank";
+                TextShooting.text = "Kill the Tank with your upraded weapon";
+                Tanks[1].SetActive(true);
                 break;
             case "Second Idle Tank Killed":
-                TextTables.text = "Your gun is now really powerfull. Now go buy your first tower";
+                TextShooting.text = "Your gun is now really powerfull. Now kill the moving one"; 
+                TextTables.text = "Your gun is now really powerfull. Now kill the moving one";
+                Tanks[2].SetActive(true);
+                break;
+            case "First Moving Tank Killed":
+                TextShooting.text = "Nice kill, now let's buy your first Tower";
+                TextTables.text = "Press the button to buy a Tower";
                 LoadState(2);
-                break;            
+                break;
             case "Tower Bought 0":
+                TextTables.text = "You bought your first tower, now place it on the circle behind you";
+                TextShooting.text = "Place the tower on the circle";
                 PlacePoints[0].SetActive(true);
+                ShopButtons[0].SetActive(false);
                 break;
             case "Tower placed Canon":
+                TextShooting.text = "Tower placed, now let see if it can kill the enemy";
                 Enemys[0].SetActive(true);
                 Enemys[0].GetComponent<EnemyManager>().alive = true;
                 break;
-            case "Tower Bought 1":
+            case "Enemy 0 killed":
+                TextShooting.text = "Enemy killed, let's buy another tower";
+                TextTables.text = "Press the button to buy a Tower";
                 ShopButtons[1].SetActive(true);
                 break;
+            case "Tower Bought 1":
+                TextShooting.text = "Place the tower on the available circle or move the first tower by grabbing it";
+                TextTables.text = "You bought a Missile tower, high damages but slow reloading";
+                PlacePoints[1].SetActive(true);
+                ShopButtons[1].SetActive(false);
+                break;
             case "Tower placed Missile":
+                TextShooting.text = "Tower placed, now let see if it can kill the enemy";
                 Enemys[1].SetActive(true);
                 Enemys[1].GetComponent<EnemyManager>().alive = true;
                 break;
-            case "Tower Bought 2":
+            case "Enemy 1 killed":
+                TextShooting.text = "Enemy killed, let's buy another tower";
+                TextTables.text = "Press the button to buy a Tower";
                 ShopButtons[2].SetActive(true);
                 break;
+            case "Tower Bought 2":
+                TextShooting.text = "Place the tower on the available circle or move the first tower by grabbing it";
+                TextTables.text = "You bought a Rail tower, Low damages but continuous";
+                PlacePoints[2].SetActive(true);
+                ShopButtons[2].SetActive(false);
+                break;
             case "Tower placed Rail":
+                TextShooting.text = "Tower placed, now let see if it can kill the enemy";
                 Enemys[2].SetActive(true);
                 Enemys[2].GetComponent<EnemyManager>().alive = true;
                 break;
-            case "Fourth Moving Tank Killed":
+            case "Enemy 3 killed":
                 TextShooting.text = "Well done ! Now try to upgrade your towers for Power increase";
+                TextTables.text = "Here is the Table for upgrade your Tower. Place one Tower on the table and press the Upgrade button";
                 LoadState(3);
                 break;
             case "Tower Upgraded":
-                // Set active the button to finish tutorial
+                TextTables.text = "Tower upgraded ! now put it back to a circle and it will kill enemy faster";
+                TextShooting.text = "Place the tower on the available circle or move the first tower by grabbing it";
+                break;
+            case "Tower upgraded placed":
+                TextShooting.text = "Tower placed, now let see if it can kill the enemy";
+                Enemys[3].SetActive(true);
+                Enemys[3].GetComponent<EnemyManager>().alive = true;
+                break;
+            case "Enemy 4 killed":
+                TextShooting.text = "Tutorial finished. Press the button for start a new Game";
+                ButtonTables.SetActive(true);
                 break;
             case "Finish Tutorial":
                 LoadState(4);
