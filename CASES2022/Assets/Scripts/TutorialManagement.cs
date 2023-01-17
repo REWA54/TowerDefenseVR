@@ -215,7 +215,7 @@ public class TutorialManagement : MonoBehaviour
                 break;
             case "Enemy 4 killed":
                 TextShooting.text = "Tutorial finished. Press the button for start a new Game";
-                ButtonTables.SetActive(true);
+                ButtonShooting.SetActive(true);
                 break;
             case "Finish Tutorial":
                 LoadState(4);

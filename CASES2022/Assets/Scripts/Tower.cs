@@ -128,6 +128,10 @@ public class Tower : MonoBehaviour
         // shootingRate /= upgradeMultiplicator;
         // bulletSpeed *= upgradeMultiplicator;
         // range *= upgradeMultiplicator;
+        if (Tutorial)
+        {
+            isUpgraded = true;
+        }
         damagesMultiplicator *= upgradeMultiplicator;
         value += upgradePrice;
         upgradePrice = Mathf.Round(

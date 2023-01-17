@@ -2442,7 +2442,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8223660761951273490, guid: 2499b0a5dda6e9147a66993688bdc327, type: 3}
       propertyPath: tutorialStepArgs
-      value: Enemy 3 killed
+      value: Enemy 4 killed
       objectReference: {fileID: 0}
     - target: {fileID: 8223660761951273492, guid: 2499b0a5dda6e9147a66993688bdc327, type: 3}
       propertyPath: m_Enabled

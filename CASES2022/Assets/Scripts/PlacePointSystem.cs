@@ -28,12 +28,14 @@ public class PlacePointSystem : MonoBehaviour
             args.interactableObject.transform.gameObject.GetComponent<Tower>().Placement(true);
             placeParticles.Play();
             if (Tutorial)
-            {                
-                tutorialManagement.TutorialStep("Tower placed " + args.interactableObject.transform.gameObject.GetComponent<Tower>().TowerType);
+            {
                 if (args.interactableObject.transform.gameObject.GetComponent<Tower>().isUpgraded)
                 {
-                    tutorialManagement.TutorialStep("Tower upgraded placed ");
+                    tutorialManagement.TutorialStep("Tower upgraded placed");
+                    return;
                 }
+                tutorialManagement.TutorialStep("Tower placed " + args.interactableObject.transform.gameObject.GetComponent<Tower>().TowerType);
+                
             }
         }        
     }
