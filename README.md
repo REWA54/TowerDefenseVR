@@ -9,6 +9,6 @@ Download directly from the App Lab : https://www.oculus.com/experiences/quest/64
 
 For download the game, download the APK file in Builds folder and install it on your Meta device with Sidequest.
 
-#Game steps
+# Game steps
 First, you'll have a tutorial for learn how to use the gun, uprgade it and towers abilities.
 Then you'll start your first game and that's all for now. Leave comments if you have ideas for futur upgrades !
