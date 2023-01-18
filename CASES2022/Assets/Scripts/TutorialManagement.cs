@@ -1,8 +1,7 @@
-using System.Collections;
 using System.Collections.Generic;
-using UnityEngine.SceneManagement;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TutorialManagement : MonoBehaviour
 {
@@ -10,6 +9,7 @@ public class TutorialManagement : MonoBehaviour
 
     public int tutorialState;
     private int highestTutorialState;
+    public GameObject UpgradeButton;
 
     public TMP_Text TextTables;
     public GameObject ButtonTables;
@@ -23,14 +23,14 @@ public class TutorialManagement : MonoBehaviour
     public GameObject tableUpgrade;
     public GameObject tableShop;
 
-    public GameObject[] Tanks ;
+    public GameObject[] Tanks;
     public GameObject[] PlacePoints;
     public GameObject[] ShopButtons;
     public GameObject[] Enemys;
 
     private List<bool> ThingsUpgraded;
     int ButtonPressedState;
-    
+
     void Start()
     {
         TextShooting.text = "Welcome to the TowerDefense VR Tutorial";
@@ -50,7 +50,7 @@ public class TutorialManagement : MonoBehaviour
         }
         highestTutorialState = PlayerPrefs.GetInt("highestTutorialState", 0);
         tutorialState = highestTutorialState;
-        
+
         LoadState(tutorialState);
     }
 
@@ -86,10 +86,10 @@ public class TutorialManagement : MonoBehaviour
         }
     }
 
-    public void LoadState (int state)
+    public void LoadState(int state)
     {
         tutorialState = state;
-       // SaveTutorialState();
+        // SaveTutorialState();
         tableShop.gameObject.SetActive(false);
         tableUpgrade.gameObject.SetActive(false);
 
@@ -109,16 +109,17 @@ public class TutorialManagement : MonoBehaviour
             case 3:
                 tableShop.SetActive(false);
                 tableUpgrade.SetActive(true);
+                UpgradeButton.SetActive(true);
                 break;
             case 4:
                 SceneManager.LoadScene(1);
                 break;
-        }            
+        }
     }
-    
+
     public void ThingUpgraded(string tag)
     {
-        switch(tag)
+        switch (tag)
         {
             case "Weapon":
                 //ThingsUpgraded[0] = true;
@@ -129,7 +130,7 @@ public class TutorialManagement : MonoBehaviour
                 TutorialStep("Tower Upgraded");
                 break;
         }
-        
+
     }
     public void TutorialStep(string Event)
     {
@@ -139,15 +140,16 @@ public class TutorialManagement : MonoBehaviour
             case "First Tank Killed":
                 TextShooting.text = "A real sniper ! Now look at the new table behind you";
                 TextTables.text = "Here is the Table for upgrade your Weapon. Place your weapon on the table and press the Upgrade button";
-               LoadState(1);
+                LoadState(1);
                 break;
             case "Gun Upgraded":
                 TextTables.text = "Your gun is upgraded ! try it on this Tank";
                 TextShooting.text = "Kill the Tank with your upraded weapon";
                 Tanks[1].SetActive(true);
+                UpgradeButton.SetActive(false);
                 break;
             case "Second Idle Tank Killed":
-                TextShooting.text = "Your gun is now really powerfull. Now kill the moving one"; 
+                TextShooting.text = "Your gun is now really powerfull. Now kill the moving one";
                 TextTables.text = "Your gun is now really powerfull. Now kill the moving one";
                 Tanks[2].SetActive(true);
                 break;
@@ -201,12 +203,13 @@ public class TutorialManagement : MonoBehaviour
                 break;
             case "Enemy 3 killed":
                 TextShooting.text = "Well done ! Now try to upgrade your towers for Power increase";
-                TextTables.text = "Here is the Table for upgrade your Tower. Place one Tower on the table and press the Upgrade button";
+                TextTables.text = "Here is the Table for upgrade your Tower. Place one Tower on the table and press the Upgrade button";                
                 LoadState(3);
                 break;
             case "Tower Upgraded":
                 TextTables.text = "Tower upgraded ! now put it back to a circle and it will kill enemy faster";
-                TextShooting.text = "Place the tower on the available circle or move the first tower by grabbing it";
+                TextShooting.text = "Place the tower on the available circle or move the first tower by grabbing it"; 
+                UpgradeButton.SetActive(false);
                 break;
             case "Tower upgraded placed":
                 TextShooting.text = "Tower placed, now let see if it can kill the enemy";
@@ -219,7 +222,7 @@ public class TutorialManagement : MonoBehaviour
                 break;
             case "Finish Tutorial":
                 LoadState(4);
-                    break;
+                break;
         }
     }
 }

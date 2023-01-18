@@ -1,8 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
-using TMPro;
 
 public class Pistol : MonoBehaviour
 {
@@ -15,6 +13,7 @@ public class Pistol : MonoBehaviour
     public float upgradePrice;
     public float damagesMultiplier;
     public int Level;
+    public XRInteractorLineVisual xRInteractorLineVisual;
 
     [SerializeField] TMP_Text LevelUI;
     [SerializeField] ParticleSystem shootParticles;
@@ -23,7 +22,6 @@ public class Pistol : MonoBehaviour
     {
         XRGrabInteractable grabbable = GetComponent<XRGrabInteractable>();
         grabbable.activated.AddListener(FireBullet);
-
     }
 
     void FireBullet(ActivateEventArgs args)
@@ -31,13 +29,13 @@ public class Pistol : MonoBehaviour
         shootParticles.Play();
         xrController.SendHapticImpulse(0.3f, 0.1f);
         GameObject Bullet = Instantiate(BulletGO);
-        Bullet.GetComponent<Bullet>().Fire(BarrelEnd, BarrelEnd.forward, FireSpeed,damagesMultiplier,Vector3.zero);
+        Bullet.GetComponent<Bullet>().Fire(BarrelEnd, BarrelEnd.forward, FireSpeed, damagesMultiplier, Vector3.zero);
     }
 
     public void ChangeGrabbedState(bool state)
     {
         isGrabbed = state;
-        Debug.Log("Weapon state is now : " + isGrabbed);
+        xRInteractorLineVisual.enabled = !isGrabbed;
     }
 
     public void Upgrade()

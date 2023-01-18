@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
@@ -14,7 +12,7 @@ public class PlacePointSystem : MonoBehaviour
         if (Tutorial)
         {
             tutorialManagement = FindObjectOfType<TutorialManagement>();
-        }        
+        }
     }
     public bool AsATower()
     {
@@ -35,9 +33,9 @@ public class PlacePointSystem : MonoBehaviour
                     return;
                 }
                 tutorialManagement.TutorialStep("Tower placed " + args.interactableObject.transform.gameObject.GetComponent<Tower>().TowerType);
-                
+
             }
-        }        
+        }
     }
     public void TowerRemove(SelectExitEventArgs args)
     {

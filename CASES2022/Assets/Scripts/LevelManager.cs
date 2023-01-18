@@ -1,8 +1,7 @@
-using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using TMPro;
 
 public class LevelManager : MonoBehaviour
 {
@@ -13,11 +12,11 @@ public class LevelManager : MonoBehaviour
     public int level = 0;
     [SerializeField] EnemySpawner enemySpawner;
     [SerializeField] TMP_Text[] moneyUI;
-    
+    [SerializeField] GameObject[] levelStartButtons;
     public TMP_Text levelIndicator;
     float money;
     int enemysThisWave = 0;
-    int enemysKilledThisWave =0;
+    int enemysKilledThisWave = 0;
     GameObject map;
 
     [Space]
@@ -31,7 +30,11 @@ public class LevelManager : MonoBehaviour
         UpdateUI();
         EndCanvas.SetActive(false);
         LoadMap(0);
-       // LevelStart();
+        // LevelStart();
+        foreach (var item in levelStartButtons)
+        {
+            item.SetActive(true);
+        }
     }
     public void LevelEnd()
     {
@@ -48,7 +51,7 @@ public class LevelManager : MonoBehaviour
     [ContextMenu("Start Level")]
     public void LevelStart()
     {
-        
+
         if (!CheckWaveEnd() || map == null)
         {
             return;
@@ -60,10 +63,14 @@ public class LevelManager : MonoBehaviour
         enemysKilledThisWave = 0;
         enemysThisWave = enemySpawner.StartSpawn(level);
         UpdateUI();
+        foreach (var item in levelStartButtons)
+        {
+            item.SetActive(false);
+        }
     }
     public void LoadMap(int index)
     {
-       
+
         if (!CheckWaveEnd())
         {
             return;
@@ -81,16 +88,22 @@ public class LevelManager : MonoBehaviour
         {
             text.text = Mathf.RoundToInt(money).ToString();
         }
-       // moneyUI.text = money.ToString();
+        // moneyUI.text = money.ToString();
         levelIndicator.text = "LEVEL " + level.ToString();
     }
 
     public void Loot(float lootAmount)
     {
         money += lootAmount;
-        
         enemysKilledThisWave++;
         UpdateUI();
+        if (CheckWaveEnd())
+        {
+            foreach (var item in levelStartButtons)
+            {
+                item.SetActive(true);
+            }
+        }
     }
 
     bool CheckWaveEnd()
@@ -102,7 +115,7 @@ public class LevelManager : MonoBehaviour
         return true;
         // check if all enemys are dead
     }
-    
+
     public void Refund(float cost)
     {
         money += cost;

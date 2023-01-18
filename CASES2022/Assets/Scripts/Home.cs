@@ -1,8 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using DG.Tweening;
 using TMPro;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class Home : MonoBehaviour
@@ -21,8 +19,8 @@ public class Home : MonoBehaviour
     {
         levelManager = FindObjectOfType<LevelManager>();
         CurrentLife = Life;
-        UpdateUI();        
-        
+        UpdateUI();
+
     }
 
     private void OnTriggerEnter(Collider other)
@@ -30,7 +28,7 @@ public class Home : MonoBehaviour
         if (other.CompareTag("Enemy"))
         {
             EnemyManager enemyManager = other.GetComponent<EnemyManager>();
-            TakeDamages( enemyManager.Damage);
+            TakeDamages(enemyManager.Damage);
             enemyManager.Die(false);
         }
     }

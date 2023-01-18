@@ -1,9 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
+using DG.Tweening;
+using TMPro;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
-using TMPro;
-using DG.Tweening;
 
 public class UpgradeSystem : MonoBehaviour
 {
@@ -20,6 +18,7 @@ public class UpgradeSystem : MonoBehaviour
         if (Tutorial)
         {
             tutorialManagement = FindObjectOfType<TutorialManagement>();
+            return;
         }
     }
     public void Upgrade()
@@ -80,7 +79,7 @@ public class UpgradeSystem : MonoBehaviour
         {
             case ("Weapon"):
                 upgradePrice = Mathf.Round(thingToUpgrade.GetComponent<Pistol>().upgradePrice);
-               
+
                 break;
             case ("Tower"):
                 upgradePrice = Mathf.Round(thingToUpgrade.GetComponent<Tower>().upgradePrice);

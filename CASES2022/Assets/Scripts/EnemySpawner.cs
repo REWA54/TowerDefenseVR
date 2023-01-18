@@ -1,6 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
@@ -25,7 +23,7 @@ public class EnemySpawner : MonoBehaviour
     public int StartSpawn(int actualLevel)
     {
         level = actualLevel;
-        enemysToSpawn = Mathf.RoundToInt(Random.Range(level, level*1.2f));
+        enemysToSpawn = Mathf.RoundToInt(Random.Range(level, level * 1.2f));
         SpawnedEnemy = 0;
         LevelLaunched = true;
         return enemysToSpawn;
@@ -33,12 +31,9 @@ public class EnemySpawner : MonoBehaviour
 
     private void Update()
     {
-        if (SpawnedEnemy <= enemysToSpawn  && SpawnCooldown(spawnRate) && LevelLaunched)
+        if (SpawnedEnemy < enemysToSpawn && SpawnCooldown(spawnRate) && LevelLaunched)
         {
-            SpawnEnemy(
-                Mathf.RoundToInt( Random.Range(0,enemyPrefabs.Length))
-               
-                );
+            SpawnEnemy(Mathf.RoundToInt(Random.Range(0, enemyPrefabs.Length)));
         }
     }
 
@@ -47,7 +42,7 @@ public class EnemySpawner : MonoBehaviour
         openDoor.Play("EnemySpawnBaseAnim");
         yield return new WaitForSeconds(0.5f);
     }
-    
+
     bool SpawnCooldown(float spawnRateUpdate)
     {
         if (spawnCooldown > 0)
@@ -63,7 +58,7 @@ public class EnemySpawner : MonoBehaviour
     void SpawnEnemy(int prefab)
     {
         StartCoroutine(OpenDoor());
-        GameObject EnemyInstanciated = Instantiate(enemyPrefabs[prefab],spawnPoint);
+        GameObject EnemyInstanciated = Instantiate(enemyPrefabs[prefab], spawnPoint);
         EnemyManager em = EnemyInstanciated.GetComponent<EnemyManager>();
         //em.LoadData(enemyTypes[Type]);
         em.IncreaseDifficulty(level);

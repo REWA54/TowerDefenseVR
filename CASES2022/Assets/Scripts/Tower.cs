@@ -1,7 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using TMPro;
+using UnityEngine;
 
 public class Tower : MonoBehaviour
 {
@@ -53,7 +51,7 @@ public class Tower : MonoBehaviour
         else
         {
             levelManager = FindObjectOfType<LevelManager>();
-        }        
+        }
         value = price;
         upgradePrice = 0.2f * value;
         shootCooldown = 0f;
@@ -65,15 +63,16 @@ public class Tower : MonoBehaviour
         range = Data.range;
         damagesMultiplicator = Data.damagesMultiplicator;
         price = Data.price;
-        if (TowerType == TypeSelection.Rail){
+        if (TowerType == TypeSelection.Rail)
+        {
             Debug.Log("I Load rail DATA");
             railLineRenderer = gameObject.GetComponent<RailTowerPrefabs>().lineRenderer;
             railHitLight = gameObject.GetComponent<RailTowerPrefabs>().light;
             railHitParticles = gameObject.GetComponent<RailTowerPrefabs>().particleSystem;
             return;
-        }        
-        shootingRate = Data.shootingRate;        
-        bulletSpeed = Data.bulletVelocity;        
+        }
+        shootingRate = Data.shootingRate;
+        bulletSpeed = Data.bulletVelocity;
     }
     private void OnDrawGizmosSelected()
     {
@@ -91,37 +90,37 @@ public class Tower : MonoBehaviour
         {
             transform.localScale /= 5;
         }
-        
+
     }
     void Update()
     {
-        
-            if (TargetGO == null || !isPlaced)
+
+        if (TargetGO == null || !isPlaced)
+        {
+
+            if (TowerType == TypeSelection.Rail)
             {
-            
-                if (TowerType == TypeSelection.Rail)
-                {
-                    //Disable the line renderer when there is no target
-                    railLineRenderer.enabled = false;
-                    railHitParticles.Stop();
-                    railHitLight.enabled = false;
-                }               
-                return;
+                //Disable the line renderer when there is no target
+                railLineRenderer.enabled = false;
+                railHitParticles.Stop();
+                railHitLight.enabled = false;
             }
-            MoveTower(TargetGO.transform.position);
-            switch (TowerType)
-            {
-                //call the right function depending on the tower type
-                case TypeSelection.Canon:
-                    CanonShoot();
-                    break;
-                case TypeSelection.Rail:
-                    LaserRail();
-                    break;
-                case TypeSelection.Missile:
-                    MissileLaunch();
-                    break;
-            }
+            return;
+        }
+        MoveTower(TargetGO.transform.position);
+        switch (TowerType)
+        {
+            //call the right function depending on the tower type
+            case TypeSelection.Canon:
+                CanonShoot();
+                break;
+            case TypeSelection.Rail:
+                LaserRail();
+                break;
+            case TypeSelection.Missile:
+                MissileLaunch();
+                break;
+        }
     }
     public void Upgrade()
     {
@@ -135,7 +134,7 @@ public class Tower : MonoBehaviour
         damagesMultiplicator *= upgradeMultiplicator;
         value += upgradePrice;
         upgradePrice = Mathf.Round(
-            price * Mathf.Pow(upgradeMultiplicator,level)
+            price * Mathf.Pow(upgradeMultiplicator, level)
             );
         level++;
         UpdateUI();
@@ -180,34 +179,35 @@ public class Tower : MonoBehaviour
     void Launch()
     {
         GameObject Missile = Instantiate(MissilePrefab);
-        Missile.GetComponent<Bullet>().Fire(SpawnPointBullet, SpawnPointBullet.forward, bulletSpeed, damagesMultiplicator,TargetGO.transform.position);
+        Missile.GetComponent<Bullet>().Fire(SpawnPointBullet, SpawnPointBullet.forward, bulletSpeed, damagesMultiplicator, TargetGO.transform.position);
         // Launch a missile
     }
     void LaserRail()
     {
         // Laser rail point to the target, damage it, show a light and a particle system
-       EnemyManager enemyManager = enemyAimed.GetComponent<EnemyManager>();
-        enemyManager.TakeDamages(damagesMultiplicator * Time.deltaTime,false) ;
+        EnemyManager enemyManager = enemyAimed.GetComponent<EnemyManager>();
+        enemyManager.TakeDamages(damagesMultiplicator * Time.deltaTime, false);
 
-       if(railLineRenderer.enabled == false){
+        if (railLineRenderer.enabled == false)
+        {
             railLineRenderer.enabled = true;
-			railHitParticles.Play();
-			railHitLight.enabled = true;
-       }
+            railHitParticles.Play();
+            railHitLight.enabled = true;
+        }
 
-        railLineRenderer.SetPosition(0,SpawnPointBullet.position);
-        railLineRenderer.SetPosition(1,TargetGO.transform.position);
+        railLineRenderer.SetPosition(0, SpawnPointBullet.position);
+        railLineRenderer.SetPosition(1, TargetGO.transform.position);
 
         Vector3 direction = SpawnPointBullet.position - TargetGO.transform.position;
-       railHitParticles.transform.position = TargetGO.transform.position;
-       railHitParticles.transform.rotation = Quaternion.LookRotation(direction);
+        railHitParticles.transform.position = TargetGO.transform.position;
+        railHitParticles.transform.rotation = Quaternion.LookRotation(direction);
 
     }
-    void FindEnemy() 
+    void FindEnemy()
     {
-       
+
         // Find the nearest enemy and set it as the target
-         if (!isPlaced)
+        if (!isPlaced)
         {
             return;
         }
@@ -248,7 +248,7 @@ public class Tower : MonoBehaviour
                     enemyAimed = enemy;
                     TargetGO = enemy.GetComponent<EnemyManager>().targetPoint.gameObject;
                 }
-            }           
+            }
         }
     }
     void MoveTower(Vector3 EnemyTarget)
@@ -261,6 +261,6 @@ public class Tower : MonoBehaviour
     {
         GameObject Bullet = Instantiate(BulletPrefab);
         Bullet.GetComponent<Bullet>().Fire(SpawnPointBullet, SpawnPointBullet.forward, bulletSpeed, damagesMultiplicator, TargetGO.transform.position);
-       
+
     }
 }

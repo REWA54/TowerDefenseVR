@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.XR.Interaction.Toolkit;
 
 public class Bullet : MonoBehaviour
 {
@@ -14,35 +11,34 @@ public class Bullet : MonoBehaviour
     {
         LoadData(Data);
     }
-    
+
     void LoadData(BulletData Data)
     {
         Damages = Data.Damage;
     }
 
-    public void Fire(Transform spawnPoint, Vector3 direction,float speed, float damages, Vector3 TargetPoint)
-    {       
+    public void Fire(Transform spawnPoint, Vector3 direction, float speed, float damages, Vector3 TargetPoint)
+    {
         transform.position = spawnPoint.position;
         transform.LookAt(TargetPoint);
 
         Damages *= damages;
-        
+
         GetComponent<Rigidbody>().velocity = direction * speed;
         Destroy(gameObject, 2);
     }
     private void OnTriggerEnter(Collider other)
     {
-        GameObject impactParticles = (GameObject) Instantiate(particlesHit);
-        impactParticles.transform.position =  transform.position;
-        impactParticles.transform.LookAt(GetComponent<Rigidbody>().velocity);
-        //impactParticles.GetComponent<MeshRenderer>().material = other.GetComponent<MeshRenderer>().material;
-        Destroy(impactParticles, 0.5f);
         if (other.CompareTag("Enemy"))
         {
-            other.GetComponent<EnemyManager>().TakeDamages(Damages,true);
-            Destroy(gameObject);
+            other.GetComponent<EnemyManager>().TakeDamages(Damages, true);
+            GameObject impactParticles = (GameObject)Instantiate(particlesHit);
+            impactParticles.transform.position = transform.position;
+            impactParticles.transform.LookAt(GetComponent<Rigidbody>().velocity);
+            //impactParticles.GetComponent<MeshRenderer>().material = other.GetComponent<MeshRenderer>().material;
+            Destroy(impactParticles, 0.5f);
         }
-       
+        Destroy(gameObject);
     }
 
 }

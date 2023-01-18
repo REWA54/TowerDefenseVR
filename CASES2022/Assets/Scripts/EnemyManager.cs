@@ -1,12 +1,11 @@
+using DG.Tweening;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
-using DG.Tweening;
-using UnityEditor;
 
 public class EnemyManager : MonoBehaviour
 {
-    
+
     public EnemyData Data;
     float lootAmount;
     public float Damage;
@@ -20,7 +19,7 @@ public class EnemyManager : MonoBehaviour
     public Transform targetPoint;
     LevelManager levelManager;
     TutorialManagement tutorialManagement;
-    public float DifficultyMultiplicator = 1.2f;
+    public float DifficultyMultiplicator = 1.4f;
     [Header("Tutorial Settings")]
     public bool Tutorial;
     public string tutorialStepArgs;
@@ -56,39 +55,43 @@ public class EnemyManager : MonoBehaviour
         maxLife = Data.Life;
         lootAmount = Data.lootMoney;
         GetComponent<EnemyMovement>().speed = Data.Speed;
-        
+
     }
     void Update()
     {
         UICanvas.gameObject.transform.LookAt(playerCamera.transform);
     }
-    public void TakeDamages(float hitDamages , bool animate)
+    public void TakeDamages(float hitDamages, bool animate)
     {
         Life -= hitDamages;
         UpdateUI(animate);
-        if (Life<=0)
+        if (Life <= 0)
         {
             Die(true);
         }
-        
+
     }
 
-    void UpdateUI(bool punchScale) {
-        LifeFillAmount.fillAmount = Life / maxLife;
+    void UpdateUI(bool punchScale)
+    {
+
         lifeText.text = Mathf.Round(Life).ToString();
         if (punchScale)
         {
+            //LifeFillAmount.fillAmount = Life / maxLife;
+            LifeFillAmount.DORewind();
+            LifeFillAmount.DOFillAmount(Life / maxLife, 0.1f);
+            //DOTween.Clear();
+            lifeText.transform.DORewind();
             lifeText.transform.DOPunchScale(Vector3.one, 0.1f);
-           
         }
-        
     }
     public void IncreaseDifficulty(int spawnLevel)
-    {        
+    {
         // Increase difficulty by level
         level = spawnLevel;
-        Damage *= Mathf.Pow(DifficultyMultiplicator,level);
-        Life *= Mathf.Pow(DifficultyMultiplicator,level);
+        Damage *= Mathf.Pow(DifficultyMultiplicator, level);
+        Life *= Mathf.Pow(DifficultyMultiplicator, level);
         maxLife = Life;
     }
 
@@ -118,10 +121,10 @@ public class EnemyManager : MonoBehaviour
         }
         alive = false;
         GameObject DeathEffect = Instantiate(deathEffect, targetPoint.transform.position, Quaternion.identity);
-        //Destroy(DeathEffect,1f);
+        Destroy(DeathEffect,5f);
         //gameObject.SetActive(false);
         Destroy(gameObject);
     }
 
-  
+
 }
