@@ -13471,12 +13471,52 @@ PrefabInstance:
       value: XR Origin
       objectReference: {fileID: 0}
     - target: {fileID: 5046812376181513872, guid: 4a9542bc5d94c3a4eb657ffa114a5a5b, type: 3}
+      propertyPath: orthographic
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5046812376181513872, guid: 4a9542bc5d94c3a4eb657ffa114a5a5b, type: 3}
+      propertyPath: field of view
+      value: 60.000004
+      objectReference: {fileID: 0}
+    - target: {fileID: 5046812376181513872, guid: 4a9542bc5d94c3a4eb657ffa114a5a5b, type: 3}
+      propertyPath: m_FOVAxisMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5046812376181513872, guid: 4a9542bc5d94c3a4eb657ffa114a5a5b, type: 3}
+      propertyPath: m_FocalLength
+      value: 20.78461
+      objectReference: {fileID: 0}
+    - target: {fileID: 5046812376181513872, guid: 4a9542bc5d94c3a4eb657ffa114a5a5b, type: 3}
+      propertyPath: m_projectionMatrixMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5046812376181513872, guid: 4a9542bc5d94c3a4eb657ffa114a5a5b, type: 3}
       propertyPath: m_AllowDynamicResolution
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5046812376181513875, guid: 4a9542bc5d94c3a4eb657ffa114a5a5b, type: 3}
+      propertyPath: m_StopNaN
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5046812376181513875, guid: 4a9542bc5d94c3a4eb657ffa114a5a5b, type: 3}
+      propertyPath: m_Dithering
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5046812376181513875, guid: 4a9542bc5d94c3a4eb657ffa114a5a5b, type: 3}
+      propertyPath: m_CameraType
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5046812376181513875, guid: 4a9542bc5d94c3a4eb657ffa114a5a5b, type: 3}
       propertyPath: m_RendererIndex
       value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5046812376181513875, guid: 4a9542bc5d94c3a4eb657ffa114a5a5b, type: 3}
+      propertyPath: m_AllowXRRendering
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5046812376181513875, guid: 4a9542bc5d94c3a4eb657ffa114a5a5b, type: 3}
+      propertyPath: m_RenderPostProcessing
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5046812376204496444, guid: 4a9542bc5d94c3a4eb657ffa114a5a5b, type: 3}
       propertyPath: m_InteractionManager
