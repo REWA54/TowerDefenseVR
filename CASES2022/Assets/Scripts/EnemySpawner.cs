@@ -11,6 +11,7 @@ public class EnemySpawner : MonoBehaviour
     int SpawnedEnemy = 0;
     int enemysToSpawn;
     int level;
+    public int difficulty = 1;
     float spawnCooldown;
     public float spawnRate;
     bool LevelLaunched = false;
@@ -61,7 +62,7 @@ public class EnemySpawner : MonoBehaviour
         GameObject EnemyInstanciated = Instantiate(enemyPrefabs[prefab], spawnPoint);
         EnemyManager em = EnemyInstanciated.GetComponent<EnemyManager>();
         //em.LoadData(enemyTypes[Type]);
-        em.IncreaseDifficulty(level);
+        em.IncreaseDifficulty(level*difficulty);
 
         EnemyInstanciated.GetComponent<EnemyMovement>().destinationsPoints = destinationsPoints;
         levelManager.Enemys.Add(EnemyInstanciated);

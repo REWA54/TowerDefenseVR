@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Soldier
   m_EditorClassIdentifier: 
   Damage: 5
-  Life: 5
-  Speed: 0.5
-  lootMoney: 5
+  Life: 10
+  Speed: 0.7
+  lootMoney: 2

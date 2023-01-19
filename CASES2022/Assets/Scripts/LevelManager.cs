@@ -12,13 +12,15 @@ public class LevelManager : MonoBehaviour
     public int level = 0;
     [SerializeField] EnemySpawner enemySpawner;
     [SerializeField] TMP_Text[] moneyUI;
+    [SerializeField] TMP_Text difficultyUI;
+    [SerializeField] GameObject []inputsDifficulty;
     [SerializeField] GameObject[] levelStartButtons;
     public TMP_Text levelIndicator;
     float money;
     int enemysThisWave = 0;
     int enemysKilledThisWave = 0;
     GameObject map;
-
+    int difficulty = 1;
     [Space]
     [Header("Finish Canvas")]
     [SerializeField] GameObject EndCanvas;
@@ -122,7 +124,45 @@ public class LevelManager : MonoBehaviour
         UpdateUI();
     }
 
-
+    public void ChangeDifficulty(bool moreDifficult)
+    {
+        if (moreDifficult && difficulty == 3)
+        {
+            return;
+        }
+        if (!moreDifficult && difficulty == 1)
+        {
+            return;
+        }
+        switch (moreDifficult)
+        {
+            case true:
+                difficulty++;
+                break;
+            case false:
+                difficulty--;
+                break;
+        }
+        switch (difficulty)
+        {
+            case 1:
+                difficultyUI.text = "Easy";
+                inputsDifficulty[0].SetActive(false);
+                inputsDifficulty[1].SetActive(true);
+                break;
+            case 2:
+                difficultyUI.text = "Medium";
+                inputsDifficulty[0].SetActive(true);
+                inputsDifficulty[1].SetActive(true);
+                break;
+            case 3:
+                difficultyUI.text = "Hard";
+                inputsDifficulty[0].SetActive(true);
+                inputsDifficulty[1].SetActive(false);
+                break;
+        }
+        enemySpawner.difficulty = difficulty;
+    }
     public bool Buy(float price)
     {
         if (money >= price)

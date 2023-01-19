@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccf348760c7a4fd428ae662a8aa6d567, type: 3}
   m_Name: Tank
   m_EditorClassIdentifier: 
-  Damage: 10
-  Life: 20
+  Damage: 30
+  Life: 30
   Speed: 0.5
-  lootMoney: 10
+  lootMoney: 4

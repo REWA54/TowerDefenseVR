@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Heli
   m_EditorClassIdentifier: 
   Damage: 20
-  Life: 10
+  Life: 15
   Speed: 1
-  lootMoney: 15
+  lootMoney: 6
