@@ -158,7 +158,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tutorialState: 0
-  UpgradeButton: {fileID: 0}
+  UpgradeButton: {fileID: 1772673905}
   TextTables: {fileID: 1330441660}
   ButtonTables: {fileID: 160704240}
   TextButtonTables: {fileID: 771319099}
@@ -3124,7 +3124,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8223660761951273513, guid: 2499b0a5dda6e9147a66993688bdc327, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2499b0a5dda6e9147a66993688bdc327, type: 3}
@@ -3493,6 +3493,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1205200817 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5046812376221870674, guid: 4a9542bc5d94c3a4eb657ffa114a5a5b, type: 3}
+  m_PrefabInstance: {fileID: 1737617580}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e988983f96fe1dd48800bcdfc82f23e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1212426853
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5425,6 +5436,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1825086933431537568, guid: 4a56837ab2bb6b948aa2bfbda7e09009, type: 3}
   m_PrefabInstance: {fileID: 1772673903}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1772673905 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1825086932770387005, guid: 4a56837ab2bb6b948aa2bfbda7e09009, type: 3}
+  m_PrefabInstance: {fileID: 1772673903}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1772673908 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1825086933431537572, guid: 4a56837ab2bb6b948aa2bfbda7e09009, type: 3}
@@ -5645,6 +5661,10 @@ PrefabInstance:
       propertyPath: xrController
       value: 
       objectReference: {fileID: 314288869}
+    - target: {fileID: 8952031538579214369, guid: 9d9ab9a168a23ac47bc0c7afff079bad, type: 3}
+      propertyPath: xRInteractorLineVisual
+      value: 
+      objectReference: {fileID: 1205200817}
     - target: {fileID: 8952031538579214374, guid: 9d9ab9a168a23ac47bc0c7afff079bad, type: 3}
       propertyPath: m_FirstSelectEntered.m_PersistentCalls.m_Calls.Array.size
       value: 1

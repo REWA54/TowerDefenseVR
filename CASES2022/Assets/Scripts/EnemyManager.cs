@@ -37,16 +37,17 @@ public class EnemyManager : MonoBehaviour
         alive = true;
         playerCamera = FindObjectOfType<Camera>().transform;
         LifeFillAmount.fillAmount = Life;
+        
+    }
+    private void Start()
+    {
+        UpdateUI(true);
         if (!Tutorial)
         {
             levelManager = FindObjectOfType<LevelManager>();
         }
         else
             tutorialManagement = FindObjectOfType<TutorialManagement>();
-    }
-    private void Start()
-    {
-        UpdateUI(true);
     }
     public void LoadData(EnemyData Data)
     {

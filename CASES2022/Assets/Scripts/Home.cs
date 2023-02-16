@@ -48,7 +48,7 @@ public class Home : MonoBehaviour
     }
     void UpdateUI()
     {
-        UIHome.GetComponentInChildren<TextMeshProUGUI>().text = CurrentLife.ToString();
+        UIHome.GetComponentInChildren<TextMeshProUGUI>().text = Mathf.Round(CurrentLife).ToString();
         LifeFillAmount.fillAmount = CurrentLife / Life;
 
     }

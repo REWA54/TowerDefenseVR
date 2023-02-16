@@ -19,6 +19,7 @@ public class EnemySpawner : MonoBehaviour
     void Start()
     {
         levelManager = FindObjectOfType<LevelManager>();
+   
     }
 
     public int StartSpawn(int actualLevel)

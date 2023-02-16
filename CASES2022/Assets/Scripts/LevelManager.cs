@@ -37,10 +37,21 @@ public class LevelManager : MonoBehaviour
         {
             item.SetActive(true);
         }
+        ChangeDifficulty(true);
     }
     public void LevelEnd()
     {
         Destroy(map);
+        EnemyManager[] EnemystoDestroy = FindObjectsOfType<EnemyManager>();
+        Tower[] TowersToDestroy = FindObjectsOfType<Tower>();
+        foreach (var item in EnemystoDestroy)
+        {
+            Destroy(item.gameObject);
+        }
+        foreach (var item in TowersToDestroy)
+        {
+            Destroy(item.gameObject);
+        }
         EndCanvas.SetActive(true);
         EndScoreUI.text = level.ToString();
         if (saveSystem.highScore > level)
