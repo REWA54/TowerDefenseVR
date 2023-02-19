@@ -19,7 +19,7 @@ public class EnemyMovement : MonoBehaviour
 
     void Translate()
     {
-        if (Vector3.Distance(transform.position, Destination) < 0.1f)
+        if (Vector3.Distance(transform.position, Destination) < 0.01f)
         {
             destinationIndex++;
             Destination = destinationsPoints[destinationIndex];
