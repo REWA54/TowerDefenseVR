@@ -16,7 +16,7 @@ public class LevelManager : MonoBehaviour
     [SerializeField] GameObject []inputsDifficulty;
     [SerializeField] GameObject[] levelStartButtons;
     public TMP_Text levelIndicator;
-    float money;
+    public float money;
     int enemysThisWave = 0;
     int enemysKilledThisWave = 0;
     GameObject map;
